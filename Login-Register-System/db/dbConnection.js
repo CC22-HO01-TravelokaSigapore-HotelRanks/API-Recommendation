@@ -6,7 +6,7 @@ const sequelize = new Sequelize(dbConfig.DB, dbConfig.USER, dbConfig.PASSWORD, {
   dialect: dbConfig.dialect,
   pool: dbConfig.pool,
   dialectOptions: {
-    // socketPath: dbConfig.HOST,
+    socketPath: dbConfig.SQSLINSTANCE,
   },
 });
 

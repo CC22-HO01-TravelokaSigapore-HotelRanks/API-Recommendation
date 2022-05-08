@@ -101,6 +101,30 @@ const authenticate = (req, res) => {
     });
 };
 
+const getUserById = (req, res) => {
+  User.findOne({ where: { id: req.params.id } })
+    .then((user) => {
+      if (!user) {
+        return res.status(400).send({
+          status: 'fail',
+          message: 'bad request',
+        });
+      }
+
+      res.send({
+        status: 'success',
+        message: 'sucessfull request',
+        data: user,
+      });
+    })
+    .catch((err) => {
+      res.status(500).send({
+        status: 'fail',
+        message: err,
+      });
+    });
+};
+
 const update = (req, res) => {};
 
 const removeAll = (req, res) => {
@@ -113,5 +137,6 @@ module.exports = {
   register,
   authenticate,
   update,
+  getUserById,
   removeAll,
 };
