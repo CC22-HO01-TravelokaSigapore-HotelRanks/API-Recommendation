@@ -7,6 +7,11 @@ router.get('/', (req, res) => {
     });
 }
 );
+router.list('/list',async (req, res) => {
+    const hotel = await Hotel.findAll();
+    res.json(hotel);
+}
+);
 
 module.exports=router;
 
