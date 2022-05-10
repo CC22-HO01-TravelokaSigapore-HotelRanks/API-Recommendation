@@ -1,8 +1,6 @@
 const express = require('express');
 const createError = require('http-errors');
-
 const routes = require('./routes/routes');
-// require();
 
 const app = express();
 const PORT = process.env.PORT || 8080;
@@ -15,13 +13,11 @@ app.get('/', (req, res) => {
     message: 'success',
   });
 });
-
 app.use('/user', routes);
 
 app.use((req, res, next) => {
   next(createError.NotFound());
 });
-
 app.use((err, req, res, next) => {
   res.status(err.status || 404).send({
     status: err.status || 404,
