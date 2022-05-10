@@ -1,6 +1,6 @@
 const db = {
-  HOST: `/cloudsql/${process.env.SQLINSTANCE}` || 'localhost',
-  SQLINSTANCE: `/cloudsql/${process.env.SQLINSTANCE}` || '',
+  HOST: process.env.SQLINSTANCE ? `/cloudsql/${process.env.SQLINSTANCE}` : 'localhost',
+  SQLINSTANCE: process.env.SQLINSTANCE ? `/cloudsql/${process.env.SQLINSTANCE}` : 'localhost',
   USER: process.env.USER || 'root',
   PASSWORD: process.env.PASSWORD || 'root',
   DB: 'node_mysql',

@@ -12,7 +12,7 @@ router.route('/')
   .delete(removeAll);
 
 router.route('/register')
-  .post(register)f;
+  .post(register);
 
 router.route('/login')
   .post(authenticate);
