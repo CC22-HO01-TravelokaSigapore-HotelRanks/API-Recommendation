@@ -3,8 +3,8 @@ const sequelize = require('../db/dbConnection');
 
 const User = sequelize.define('User', {
   id: {
-    type: Sequelize.UUID,
-    defaultValue: Sequelize.UUIDV4,
+    type: Sequelize.INTEGER,
+    autoIncrement: true,
     primaryKey: true,
     unique: true,
   },
@@ -12,13 +12,14 @@ const User = sequelize.define('User', {
     type: Sequelize.STRING,
   },
   birth_date: {
-    type: Sequelize.STRING,
+    type: Sequelize.DATEONLY,
   },
   nid: {
     type: Sequelize.STRING,
   },
   family: {
     type: Sequelize.BOOLEAN,
+    defaultValue: false,
   },
   hobby: {
     type: Sequelize.STRING,
