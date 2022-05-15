@@ -1,4 +1,6 @@
 const bcrypt = require('bcrypt');
+const jwt = require('jsonwebtoken');
+
 const User = require('../models/model');
 
 function request(req) {
@@ -17,15 +19,13 @@ const register = (req, res) => {
     User.findOne({ where: { userName: req.body.userName } }).then((user) => {
       if (user) {
         return res.status(409).send({
-          status: 'fail',
-          message: 'user exists',
+          message: 'user with this username exists',
         });
       }
 
       bcrypt.hash(req.body.password, 10, (err, hash) => {
         if (err) {
           return res.status(500).send({
-            status: 'error',
             message: err,
           });
         }
@@ -48,15 +48,12 @@ const register = (req, res) => {
         User.create(user)
           .then((user) => {
             res.status(201).send({
-              status: 'success',
               message: 'user created',
-              data: user,
             });
           })
           .catch((err) => {
             console.log(err);
             res.status(400).send({
-              status: 'fail',
               message: err,
             });
           });
@@ -64,7 +61,6 @@ const register = (req, res) => {
     });
   } else {
     res.status(400).send({
-      status: 'fail',
       message: "password can't be empty",
     });
   }
@@ -75,7 +71,6 @@ const authenticate = (req, res) => {
     .then((user) => {
       if (!user) {
         return res.status(401).send({
-          status: 'fail',
           message: 'auth failed',
         });
       }
@@ -83,28 +78,37 @@ const authenticate = (req, res) => {
       bcrypt.compare(req.body.password, user.password, (err, result) => {
         if (err) {
           return res.status(401).send({
-            status: 'fail',
             message: 'auth failed',
           });
         }
         if (result) {
+          const token = jwt.sign(
+            {
+              email: user.email,
+              id: user.id,
+              userName: user.userName,
+            },
+            process.env.SECRET_KEY,
+            {
+              expiresIn: '1h',
+            },
+          );
           return res.status(200).send({
             status: 'success',
             message: 'auth successful',
             data: {
               userId: user.id,
+              token,
             },
           });
         }
         return res.status(401).send({
-          status: 'fail',
           message: 'auth failed',
         });
       });
     })
     .catch((err) => {
       res.status(500).send({
-        status: 'fail',
         message: err,
       });
     });
@@ -115,20 +119,17 @@ const getUserById = (req, res) => {
     .then((user) => {
       if (!user) {
         return res.status(400).send({
-          status: 'fail',
           message: 'bad request',
         });
       }
 
       res.send({
-        status: 'success',
         message: 'sucessfull request',
         data: user,
       });
     })
     .catch((err) => {
       res.status(500).send({
-        status: 'fail',
         message: err,
       });
     });

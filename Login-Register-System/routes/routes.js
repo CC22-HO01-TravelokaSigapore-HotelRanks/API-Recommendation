@@ -1,5 +1,5 @@
 const router = require('express').Router();
-
+const authMiddleware = require('../middleware/authMiddleware');
 const {
   register,
   removeAll,
@@ -18,6 +18,7 @@ router.route('/login')
   .post(authenticate);
 
 router.route('/:id')
-  .get(getUserById)
-  .put(update);
+  .get(authMiddleware, getUserById)
+  .put(authMiddleware, update);
+
 module.exports = router;
