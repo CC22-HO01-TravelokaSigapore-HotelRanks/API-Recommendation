@@ -1,17 +1,20 @@
 const express  = require('express');
 const router= express.Router();
+const {hotel}= require('../models');
 
 router.get('/', (req, res) => {
-    res(200).json({
+    return res.json({
         message: 'Welcome to Hotel API'
     });
 }
 );
-router.list('/list',async (req, res) => {
-    const hotel = await Hotel.findAll();
-    res.json(hotel);
+router.get('/list',async (req, res) => {
+    const Hotel = await hotel.findAll();
+    return res.json(Hotel);
 }
 );
+
+
 
 module.exports=router;
 
