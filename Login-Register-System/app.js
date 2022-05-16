@@ -1,12 +1,12 @@
 const express = require('express');
 const createError = require('http-errors');
-
+const cors = require('cors');
 const routes = require('./routes/routes');
-// require();
 
 const app = express();
 const PORT = process.env.PORT || 8080;
 
+app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
@@ -15,13 +15,11 @@ app.get('/', (req, res) => {
     message: 'success',
   });
 });
-
 app.use('/user', routes);
 
 app.use((req, res, next) => {
   next(createError.NotFound());
 });
-
 app.use((err, req, res, next) => {
   res.status(err.status || 404).send({
     status: err.status || 404,
@@ -30,5 +28,5 @@ app.use((err, req, res, next) => {
 });
 
 app.listen(PORT, () => {
-  console.log(`Server is running on http://localhost:${PORT}`);
+  console.log(`Server is running on ${PORT}`);
 });
