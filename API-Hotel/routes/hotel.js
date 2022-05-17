@@ -16,7 +16,7 @@ router.get('/list',async (req, res) => {
         neighborhood,
         hotel_star,
         price_per_night,
-        room_type,
+        // room_type,
         free_refund,
         type_nearby_destination,
         nearby_destination,
@@ -43,9 +43,9 @@ router.get('/list',async (req, res) => {
     if (price_per_night){
         filters.price_per_night={[Op.like]: `%${price_per_night}%`};
     }
-    if (room_type){
-        filters.room_type={[Op.like]: `%${room_type}%`};
-    }
+    // if (room_type){
+    //     filters.room_type={[Op.like]: `%${room_type}%`};
+    // }
     if (free_refund){
         filters.free_refund={[Op.like]: `%${free_refund}%`};
     }
@@ -109,6 +109,7 @@ router.get('/list',async (req, res) => {
     }
 }
 );
+
 
 
 

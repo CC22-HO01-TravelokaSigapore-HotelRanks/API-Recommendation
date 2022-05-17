@@ -1,10 +1,10 @@
 module.exports=(sequelize,DataTypes)=>{
     const hotel = sequelize.define('hotel',{
-        Column_1:{
-            type:DataTypes.INTEGER,
-            primaryKey: true,
-            allowNull: false
-        },
+        // Column_1:{
+        //     type:DataTypes.INTEGER,
+        //     primaryKey: true,
+        //     allowNull: false
+        // },
         name:{
             type:DataTypes.STRING(60),
             allowNull: false
@@ -18,7 +18,7 @@ module.exports=(sequelize,DataTypes)=>{
             allowNull: false
         },
         neighborhood:{
-            type:DataTypes.STRING(4),
+            type:DataTypes.STRING(28),
             allowNull: false
         },
         hotel_star:{
@@ -29,10 +29,7 @@ module.exports=(sequelize,DataTypes)=>{
             type:DataTypes.INTEGER,
             allowNull:false
         },
-        room_type:{
-            type:DataTypes.STRING(12),
-            allowNull: false
-        },
+        // room_type:{type:DataTypes.STRING(12),allowNull: false},
         free_refund:{
             type:DataTypes.STRING(5),
             allowNull: false
@@ -89,10 +86,15 @@ module.exports=(sequelize,DataTypes)=>{
             type:DataTypes.INTEGER,
             allowNull: false
         },
+        image_links:{
+            type:DataTypes.STRING(851),
+            allowNull: false
+        }
     },{
-      tableName: 'hotel_dummy',
+      tableName: 'hotel_dummy_photos',
       timestamps: false
     
     });
+    hotel.removeAttribute('id');
     return hotel;
 }
