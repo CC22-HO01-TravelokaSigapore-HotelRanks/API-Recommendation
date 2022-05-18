@@ -18,9 +18,9 @@ module.exports =
   },
   "test": {
     "username": "root",
-    "password": "barkbark3.0isheretohelpyou",
+    "password": "pakehddbiarmurah",
     "database": "Productiondatabase",
-    "host": "35.184.216.155",
+    "host": "34.122.198.154",
     "dialect": "mysql"
   },
   "production": {

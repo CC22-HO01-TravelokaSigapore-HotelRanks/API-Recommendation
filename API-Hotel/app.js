@@ -9,9 +9,9 @@ const app = express();
 app.use(express.json())
 app.use('/hotel', hotel);
 
-
-app.listen(3000, () => {
-    console.log('Hotel API is running on port 3000');
+const port = process.env.PORT || 8080;
+app.listen(port, () => {
+    console.log(`Hotel API is running on port ${port}`);
     
 }
 );

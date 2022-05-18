@@ -10,6 +10,14 @@ router.get('/', (req, res) => {
 }
 );
 router.get('/list',async (req, res) => {
+    let pages = 10
+    let offset = 0
+    if (req.query.page){
+        pages = parseInt(req.query.page)
+    }
+    if (req.query.offset){
+        offset = parseInt(req.query.offset)
+    }
     try{
     const filters={};
     const{name,
@@ -89,7 +97,8 @@ router.get('/list',async (req, res) => {
         filters.price_category={[Op.like]: `%${price_category}%`};
     }
     const Hotel = await hotel.findAll({
-
+        limit: pages,
+        offset: offset,
         where:filters
     });
     if (Hotel.length > 0) {
@@ -109,6 +118,76 @@ router.get('/list',async (req, res) => {
     }
 }
 );
+router.get('/search',async (req, res) => {
+    let pages = 10
+    let offset = 0
+    if (req.query.page){
+        pages = parseInt(req.query.page)
+    }
+    if (req.query.offset){
+        offset = parseInt(req.query.offset)
+    }
+    try{
+        const info = req.query.keyword;
+        
+        const Hotel = await hotel.findAll({
+            limit: pages,
+            offset: offset,
+            where: {
+                [Op.or]:[
+                    {
+                    name: {[Op.like]: `%${info}%`}
+                },{   
+                     neighborhood: {[Op.like]: `%${info}%`}
+                },{
+                    type_nearby_destination: {[Op.like]: `%${info}%`},
+                }
+                ]
+            }
+        });
+        if (Hotel.length > 0) {
+            return res.status(200).json({
+                message: 'Success',
+                data: Hotel
+            });
+        } else {
+            return res.status(200).json({
+                message: 'No data found'
+            });
+        }
+    }catch(err){
+        return res.status(404).json({
+            message: err
+        });
+    }
+}
+);
+router.get('/:rating',async (req, res) => {
+    try{
+        const Hotel = await hotel.findAll({
+            where: {
+                hotel_star: req.params.rating
+            }
+        });
+        if (Hotel) {
+            return res.status(200).json({
+                message: 'Success',
+                data: Hotel
+            });
+        } else {
+            return res.status(200).json({
+                message: 'No data found'
+            });
+        }
+    }catch(err){
+        return res.status(404).json({
+            message: err
+        });
+    }
+}
+);
+
+
 
 
 
