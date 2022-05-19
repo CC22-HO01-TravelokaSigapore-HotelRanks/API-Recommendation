@@ -1,10 +1,10 @@
 module.exports=(sequelize,DataTypes)=>{
     const hotel = sequelize.define('hotel',{
-        // Column_1:{
-        //     type:DataTypes.INTEGER,
-        //     primaryKey: true,
-        //     allowNull: false
-        // },
+        id:{
+            type:DataTypes.INTEGER,
+            primaryKey: true,
+            allowNull: false
+        },
         name:{
             type:DataTypes.STRING(60),
             allowNull: false
@@ -95,6 +95,6 @@ module.exports=(sequelize,DataTypes)=>{
       timestamps: false
     
     });
-    hotel.removeAttribute('id');
+    
     return hotel;
 }

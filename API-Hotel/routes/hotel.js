@@ -129,32 +129,39 @@ router.get('/search',async (req, res) => {
     }
     try{
         const info = req.query.keyword;
-        
-        const Hotel = await hotel.findAll({
-            limit: pages,
-            offset: offset,
-            where: {
-                [Op.or]:[
-                    {
-                    name: {[Op.like]: `%${info}%`}
-                },{   
-                     neighborhood: {[Op.like]: `%${info}%`}
-                },{
-                    type_nearby_destination: {[Op.like]: `%${info}%`},
+        if (info){
+            const Hotel = await hotel.findAll({
+                limit: pages,
+                offset: offset,
+                where: {
+                    [Op.or]:[
+                        {
+                        name: {[Op.like]: `%${info}%`}
+                    },{   
+                         neighborhood: {[Op.like]: `%${info}%`}
+                    },{
+                        type_nearby_destination: {[Op.like]: `%${info}%`},
+                    }
+                    ]
                 }
-                ]
-            }
-        });
-        if (Hotel.length > 0) {
-            return res.status(200).json({
-                message: 'Success',
-                data: Hotel
             });
-        } else {
+            if (Hotel.length > 0) {
+                return res.status(200).json({
+                    message: 'Success',
+                    data: Hotel
+                });
+            } else {
+                return res.status(200).json({
+                    message: 'No hotel found'
+                });
+            }
+        }
+        else{
             return res.status(200).json({
-                message: 'No data found'
+                message: 'Please enter a hotel'
             });
         }
+        
     }catch(err){
         return res.status(404).json({
             message: err
