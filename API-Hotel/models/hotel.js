@@ -36,7 +36,13 @@ module.exports=(sequelize,DataTypes)=>{
         },
         type_nearby_destination:{
             type:DataTypes.STRING(61),
-            allowNull: false
+            allowNull: false,
+            get() {
+                return this.getDataValue('type_nearby_destination').replace('[','').replace(']','').split(',')
+            },
+            set(val) {
+               this.setDataValue('type_nearby_destination',val.join(','));
+            }
         },
         nearby_destination:{
             type:DataTypes.INTEGER,
@@ -88,7 +94,14 @@ module.exports=(sequelize,DataTypes)=>{
         },
         image_links:{
             type:DataTypes.STRING(851),
-            allowNull: false
+            allowNull: false,
+            get() {
+                return this.getDataValue('image_links').replace('[','').replace(']','').split(',');
+                // return this.getDataValue('image_links').split(',')
+            },
+            set(val) {
+               this.setDataValue('image_links',val.join(','));
+            }
         }
     },{
       tableName: 'hotel_dummy_photos',
