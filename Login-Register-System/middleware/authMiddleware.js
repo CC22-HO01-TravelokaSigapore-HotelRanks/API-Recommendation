@@ -7,7 +7,7 @@ module.exports = (req, res, next) => {
       message: 'unauthorized',
     });
   }
-  jwt.verify(token, process.env.SECRET_KEY, (err, decoded) => {
+  jwt.verify(token, process.env.ACCESS_TOKEN_SECRET_KEY, (err, decoded) => {
     if (err) {
       return res.status(500).send({
         message: err,

@@ -1,2 +1,8 @@
 node_modules/
 *.md
+.env
+csvParser.js
+.eslinctrc.json
+.txt
+.prettierrc
+.gitignore
