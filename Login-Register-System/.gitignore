@@ -1,0 +1,7 @@
+node_modules/
+.prettierrc
+.eslintrc.json
+csvParser.js
+README.md
+.txt
+.env
