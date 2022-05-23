@@ -1,6 +1,6 @@
 FROM node:16-alpine3.15
-RUN mkdir /app
 WORKDIR /app
-COPY . /app
+COPY . .
 RUN npm install
+EXPOSE 8080
 CMD ["node", "app.js"]
