@@ -258,7 +258,6 @@ const googleLogin = async (req, res) => {
   try {
     const { id_token: idToken } = await getGoogleOauthToken(code);
     const googleUser = jwt.decode(idToken);
-    console.log(googleUser);
 
     User.sync();
     User.findOrCreate({
