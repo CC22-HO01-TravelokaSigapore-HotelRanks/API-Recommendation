@@ -4,6 +4,7 @@ const jwt = require('jsonwebtoken');
 const getGoogleOauthToken = require('../utils/getGoogleOauthToken');
 const append = require('../utils/appendValueToArray');
 const User = require('../models/model');
+const replace = require('../utils/replaceValueToArray');
 
 function request(req) {
   if (!req) {
@@ -219,10 +220,10 @@ const update = (req, res) => {
         User.update(
           {
             ...req.body,
-            hobby: append(user.hobby, req.body.hobby),
+            hobby: replace(user.hobby, req.body.hobby),
+            special_needs: replace(user.special_needs, req.body.special_needs),
             search_history: append(user.search_history, req.body.search_history),
             stay_history: append(user.stay_history, req.body.stay_history),
-            special_needs: append(user.special_needs, req.body.special_needs),
           },
           { where: { id: user.id } },
         )
