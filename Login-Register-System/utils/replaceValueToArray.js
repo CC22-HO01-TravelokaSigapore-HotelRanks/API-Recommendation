@@ -1,5 +1,5 @@
 module.exports = (user, req) => {
-  if (req === undefined || req === '') {
+  if (req === undefined) {
     if (user[0] === '') {
       return `[]`;
     }

@@ -2,11 +2,35 @@ const { models: Review } = require("../models");
 const { Op, DATE } = require('sequelize')
 const axios = require('axios');
 
+// Retrieve all Tutorials from the database.
+exports.findAll = (req, res) => {
+  Review.findAll()
+    .then(data => {
+      res.send(data);
+    })
+    .catch(err => {
+      res.status(500).send({
+        message:
+          err.message || "some error occurred while retrieving reviews."
+      });
+    });
+};
+
 exports.create = (req, res) => {
     // Validate request
     if (!req.body.text) {
       return res.status(400).send({
-        message: "Content can not be empty!"
+        message: "content can not be empty!"
+      });
+    }
+    if (!req.params.hotel_id) {
+      return res.status(400).send({
+        message: "bad request"
+      });
+    }
+    if (!req.params.user_id) {
+      return res.status(400).send({
+        message: "bad request"
       });
     }
     
@@ -19,8 +43,8 @@ exports.create = (req, res) => {
           labels: labels,
           rating: req.body.rating,
           dates: new Date(),
-          hotel_id: req.body.hotel_id,
-          user_id: req.body.user_id
+          hotel_id: req.params.hotel_id,
+          user_id: req.params.user_id
         };
 
         
@@ -32,7 +56,7 @@ exports.create = (req, res) => {
           .catch(err => {
             res.status(500).send({
               message:
-                err.message || "Some error occurred while creating the Tutorial."
+                err.message || "some error occurred while creating the review."
             });
           });
         })
@@ -42,80 +66,110 @@ exports.create = (req, res) => {
         })
       });
 };
-// Retrieve all Tutorials from the database.
-exports.findAll = (req, res) => {
-    const text = req.query.search;
-    const condition = text ? { text: { [Op.like]: `%${text}%` } } : null;
-    Review.findAll({ where: condition })
-      .then(data => {
-        res.send(data);
-      })
-      .catch(err => {
-        res.status(500).send({
-          message:
-            err.message || "Some error occurred while retrieving tutorials."
-        });
-      });
-  };
-// Find a single Tutorial with an id
-exports.findOneById = (req, res) => {
-    const id = req.params.id;
-    Review.findByPk(id)
-      .then(data => {
-        if (data) {
-          res.send(data);
-        } else {
-          res.status(404).send({
-            message: `Cannot find Tutorial with id=${id}.`
-          });
-        }
-      })
-      .catch(() => {
-        res.status(500).send({
-          message: "Error retrieving Tutorial with id=" + id
-        });
-      });
-  };
-  // Find a single Tutorial with an hotel_id and user_id
-  exports.findOneByUserAndHotelId = (req, res) => {
-    Review.findOne({ where: { hotel_id: req.params.hotel_id, user_id:req.params.user_id} })
-      .then(data => {
-        if (data) {
-          res.send(data);
-        } else {
-          res.status(404).send({
-            message: `Cannot find Tutorial with hotel_id and user_id=${hotel_id} + ${user_id}.`
-          });
-        }
-      })
-      .catch(() => {
-        res.status(500).send({
-          message: "Error retrieving Tutorial with hotel_id and user_id= $hotel_id + $user_id."       
-        });
-      });
-  };
-// Update a Tutorial by the id in the request
-exports.update = (req, res) => {
-  const id = req.params.id;
-  Review.update(req.body, {
-    where: { id: id }
-  })
-    .then(num => {
-      if (num == 1) {
-        res.send({
-          message: "Review was updated successfully."
-        });
-      } else {
-        res.send({
-          message: `Cannot update Tutorial with id=${id}. Maybe Tutorial was not found or req.body is empty!`
+
+// Find Reviews with an hotel_id
+exports.findAllByHotelId = (req, res) => {
+  const hotel_id = req.params.hotel_id;
+  Review.findAll({ where: { hotel_id: req.params.hotel_id } })
+    .then(data => {
+      if (data.length === 0){
+        return res.status(404).send({
+          message: `cannot find reviews regarding the hotel with a hotel_id = ${hotel_id}.`,
         });
       }
+        res.send(data);
+    })
+    .catch((err) => {
+      res.status(500).send({
+        message: `cannot find reviews regarding the hotel with a hotel_id = ${hotel_id}.`,
+      });
+    });
+};
+
+// Find all reviews with an user_id and hotel_id
+exports.findAllByHotelAndUserId = (req, res) => {
+  const { hotel_id, user_id } = req.params;
+  Review.findAll({ where: { hotel_id, user_id } })
+    .then(data => {
+      if (data.length === 0){
+        return res.status(404).send({
+          message: `cannot find Reviews with user_id = ${user_id} and hotel_id = ${hotel_id}.`,
+        });
+      }
+        res.send(data);
     })
     .catch(() => {
       res.status(500).send({
-        message: "Error updating Tutorial with id=" + id
+        message: `cannot find Reviews with user_id = ${user_id} and hotel_id = ${hotel_id}.`,   
       });
     });
+};
+
+exports.findOneById = (req, res) => {
+  const { hotel_id, user_id, review_id: id } = req.params;
+  Review.findOne({ where: { hotel_id, user_id, id } })
+    .then((data) => {
+      if(data.length === 0){
+        return res.status(404).send({
+          message: `cannot find Reviews with user_id = ${user_id}, hotel_id = ${hotel_id}, and review_id = ${id}.`,
+        });
+      }
+      res.send(data);
+    })
+    .catch(() => {
+      res.status(500).send({
+        message: `cannot find Reviews with user_id = ${user_id}, hotel_id = ${hotel_id}, and review_id = ${id}.`,   
+      });
+    })
+};
+
+// Update a Tutorial by the id in the request
+exports.update = (req, res) => {
+  const { hotel_id, user_id, review_id: id } = req.params;
+  const textRequest = req.body.text;
+
+  if (!req.body.text) {
+    return res.status(400).send({
+      message: "content can not be empty!"
+    });
+  }
+
+  axios.post('https://sentiment-analysis-ywu6raktuq-uc.a.run.app', {text:[textRequest]})
+    .then(response => {
+        const labels = response.data.rounded[0];
+        const review = {
+          text: req.body.text,
+          labels: labels,
+          rating: req.body.rating,
+          dates: new Date(),
+        };
+
+        Review.sync({ alter: true });
+        Review.update(review, { where: { id } })
+          .then(num => {
+            if (num == 1) {
+              res.send({
+                message: "review was updated successfully.",
+              });
+            } else {
+              res.send({
+                message: `cannot update review with id = ${id}.`,
+              });
+            }
+          })
+          .catch(() => {
+            res.status(500).send({
+              message: `cannot update review with id = ${id}.`,
+            });
+          });
+    })
+    .catch((error) => {
+      res.status(404).json({
+        message: error
+      });
+    })
+
+  
 };
 // Delete a Tutorial with the specified id in the request
 exports.delete = (req, res) => {
