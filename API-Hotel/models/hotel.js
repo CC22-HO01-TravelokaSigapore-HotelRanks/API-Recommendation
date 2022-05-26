@@ -38,7 +38,7 @@ module.exports=(sequelize,DataTypes)=>{
             type:DataTypes.STRING(61),
             allowNull: false,
             get() {
-                return this.getDataValue('type_nearby_destination').replace('[','').replace(']','').split(',')
+                return this.getDataValue('type_nearby_destination').replace('[','').replace(']','').replaceAll('\'','').split(',')
             },
             set(val) {
                this.setDataValue('type_nearby_destination',val.join(','));
@@ -96,7 +96,7 @@ module.exports=(sequelize,DataTypes)=>{
             type:DataTypes.STRING(851),
             allowNull: false,
             get() {
-                return this.getDataValue('image_links').replace('[','').replace(']','').split(',');
+                return this.getDataValue('image_links').replace('[','').replace(']','').replaceAll('\'','').split(',');
                 // return this.getDataValue('image_links').split(',')
             },
             set(val) {
