@@ -13,7 +13,7 @@ router.post('/:hotel_id', (req, res) => {
     .then( async response => {
         const data = response.data;
         const result = await hotel.findAll({
-            attributes: ['id', 'name'],
+            attributes: ['id', 'name','neighborhood','hotel_star','price_per_night','image_links','free_refund'],
             where: {
                 id: {
                     [Op.or]:data
@@ -35,7 +35,7 @@ router.post('/:hotel_id', (req, res) => {
     })
     .catch(function (error) {
         res.status(404).json({
-            text: error
+            text: "Sorry we encounter an error given your request"
         })
       });
      
