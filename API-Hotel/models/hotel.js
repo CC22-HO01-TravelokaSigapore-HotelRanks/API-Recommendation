@@ -31,7 +31,7 @@ module.exports=(sequelize,DataTypes)=>{
         },
         // room_type:{type:DataTypes.STRING(12),allowNull: false},
         free_refund:{
-            type:DataTypes.STRING(5),
+            type:DataTypes.BOOLEAN,
             allowNull: false
         },
         type_nearby_destination:{
