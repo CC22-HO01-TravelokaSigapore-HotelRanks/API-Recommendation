@@ -119,7 +119,7 @@ router.get('/list',async (req, res) => {
     }
 }
 );
-router.post('/:rating',async (req, res) => {
+router.get('/:rating',async (req, res) => {
     let pages = 10
     let offset = 0
     if (req.query.page){
@@ -134,6 +134,30 @@ router.post('/:rating',async (req, res) => {
             offset: offset,
             where: {
                 hotel_star: req.params.rating
+            }
+        });
+        if (Hotel) {
+            return res.status(200).json({
+                message: 'Success',
+                data: Hotel
+            });
+        } else {
+            return res.status(200).json({
+                message: 'No data found'
+            });
+        }
+    }catch(err){
+        return res.status(404).json({
+            message: err
+        });
+    }
+}
+);
+router.post('/details/:hotel_id',async (req, res) => {
+    try{
+        const Hotel = await hotel.findOne({
+            where: {
+                id: req.params.hotel_id
             }
         });
         if (Hotel) {

@@ -31,7 +31,7 @@ module.exports=(sequelize,DataTypes)=>{
         },
         // room_type:{type:DataTypes.STRING(12),allowNull: false},
         free_refund:{
-            type:DataTypes.STRING(5),
+            type:DataTypes.BOOLEAN,
             allowNull: false
         },
         type_nearby_destination:{
@@ -49,43 +49,43 @@ module.exports=(sequelize,DataTypes)=>{
             allowNull: false
         },
         breakfast:{
-            type:DataTypes.STRING(5),
+            type:DataTypes.BOOLEAN,
             allowNull: false
         },
         pool:{
-            type:DataTypes.STRING(5),
+            type:DataTypes.BOOLEAN,
             allowNull: false
         },
         wifi:{
-            type:DataTypes.STRING(5),
+            type:DataTypes.BOOLEAN,
             allowNull: false
         },
         parking:{
-            type:DataTypes.STRING(5),
+            type:DataTypes.BOOLEAN,
             allowNull: false
         },
         smoking:{
-            type:DataTypes.STRING(5),
+            type:DataTypes.BOOLEAN,
             allowNull: false
         },
         air_conditioner:{
-            type:DataTypes.STRING(5),
+            type:DataTypes.BOOLEAN,
             allowNull: false
         },
         wheelchair_access:{
-            type:DataTypes.STRING(5),
+            type:DataTypes.BOOLEAN,
             allowNull: false
         },
         average_bed_size:{
-            type:DataTypes.STRING(5),
+            type:DataTypes.BOOLEAN,
             allowNull: false
         },
         staff_vaccinated:{
-            type:DataTypes.STRING(5),
+            type:DataTypes.BOOLEAN,
             allowNull: false
         },
         child_area:{
-            type:DataTypes.STRING(5),
+            type:DataTypes.BOOLEAN,
             allowNull: false
         },
         price_category:{
