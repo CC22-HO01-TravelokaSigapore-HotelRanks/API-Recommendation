@@ -92,7 +92,7 @@ const login = (req, res) => {
             },
             process.env.ACCESS_TOKEN_SECRET_KEY,
             {
-              expiresIn: '15m',
+              expiresIn: '1m',
             },
           );
           const refreshToken = jwt.sign(
@@ -158,7 +158,7 @@ const refreshLogin = (req, res) => {
           },
           process.env.ACCESS_TOKEN_SECRET_KEY,
           {
-            expiresIn: '15m',
+            expiresIn: '1m',
           },
         );
 
@@ -284,7 +284,7 @@ const googleLogin = async (req, res) => {
           },
           process.env.ACCESS_TOKEN_SECRET_KEY,
           {
-            expiresIn: '15m',
+            expiresIn: '1m',
           },
         );
         const refreshToken = jwt.sign(
@@ -315,13 +315,11 @@ const googleLogin = async (req, res) => {
       .catch((err) => {
         console.log(err);
         res.status(500).send({
-          status: 'fail',
           message: err,
         });
       });
   } catch (err) {
     res.status(500).send({
-      status: 'fail',
       message: err,
     });
   }

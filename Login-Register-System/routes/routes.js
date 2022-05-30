@@ -21,15 +21,10 @@ router.route('/register')
 router.route('/login')
   .post(login);
 
-router.route('/login/refreshlogin')
+router.route('/login/refresh-login')
   .get(refreshLogin);
 
 router.route('/login/google')
-  .get((req, res) => {
-    res.redirect(getGoogleConsentUrl());
-  });
-
-router.route('/login/google/callback')
   .get(googleLogin);
 
 router.route('/logout')
