@@ -1,8 +1,9 @@
-const { models: Review } = require("../models");
-const { Op, DATE } = require('sequelize')
 const axios = require('axios');
 
-// Retrieve all Tutorials from the database.
+const { Review, User } = require("../models");
+const { sequelize } = require('../models/index');
+
+// Retrieve all reviews from the database.
 exports.findAll = (req, res) => {
   Review.findAll()
     .then(data => {
@@ -17,6 +18,7 @@ exports.findAll = (req, res) => {
 };
 
 exports.create = (req, res) => {
+  if (req.userData.id === parseInt(req.params.user_id, 10)){
     // Validate request
     if (!req.body.text) {
       return res.status(400).send({
@@ -44,42 +46,86 @@ exports.create = (req, res) => {
           rating: req.body.rating,
           dates: new Date(),
           hotel_id: req.params.hotel_id,
-          user_id: req.params.user_id
+          user_id: req.params.user_id,
         };
 
         
         Review.sync({ alter: true });
         Review.create(review)
-          .then(data => {
-            res.send(data);
+          .then(() => {
+            User.findOne({ where: { id: req.params.user_id } })
+              .then((user) => {
+                User.update({ reviewCounter: user.reviewCounter + 1}, { where: { id: user.id } })
+                  .then((user) => {
+                    if (user[0] === 1) {
+                      return res.send({
+                        message: 'post review success',
+                      });
+                    }
+                    res.send({
+                      message: 'post review fail',
+                    });
+                  })
+                  .catch((err) => {
+                    res.status(500).send({
+                      message: err.message || "some error occurred while creating the review."
+                    });
+                  });
+              })
+              .catch((err) => {
+                res.status(500).send({
+                  message: err.message || "some error occurred while creating the review."
+                });
+              });
           })
-          .catch(err => {
+          .catch((err) => {
             res.status(500).send({
               message:
                 err.message || "some error occurred while creating the review."
             });
           });
         })
-      .catch(error => {
+      .catch((error) => {
         res.status(404).json({
           message: error
         })
       });
+  } else {
+    res.status(403).send({
+      message: 'forbidden',
+    });
+  }
 };
 
 // Find Reviews with an hotel_id
-exports.findAllByHotelId = (req, res) => {
+exports.findAllByHotelId = async (req, res) => {
+  let pages = 1000000;
+  let offset = 0;
   const hotel_id = req.params.hotel_id;
-  Review.findAll({ where: { hotel_id: req.params.hotel_id } })
-    .then(data => {
-      if (data.length === 0){
+  if (req.query.page){
+      pages = parseInt(req.query.page)
+  }
+  if (req.query.offset){
+      offset = parseInt(req.query.offset)
+  }
+
+  const query = `SELECT coba_review.id, text, labels, rating, dates, Users.id as user_id, Users.name 
+  FROM coba_review INNER JOIN Users ON coba_review.user_id=Users.id WHERE hotel_id=${hotel_id} LIMIT ${offset}, ${pages}`
+
+  sequelize.query(query)
+    .then(([results]) => {
+      if(results.length === 0){
         return res.status(404).send({
           message: `cannot find reviews regarding the hotel with a hotel_id = ${hotel_id}.`,
         });
       }
-        res.send(data);
+      res.send({
+        message: 'successfull',
+        total: results.length,
+        results,
+      });
     })
-    .catch((err) => {
+    .catch(() => {
       res.status(500).send({
         message: `cannot find reviews regarding the hotel with a hotel_id = ${hotel_id}.`,
       });
@@ -89,14 +135,17 @@ exports.findAllByHotelId = (req, res) => {
 // Find all reviews with an user_id and hotel_id
 exports.findAllByHotelAndUserId = (req, res) => {
   const { hotel_id, user_id } = req.params;
-  Review.findAll({ where: { hotel_id, user_id } })
+  Review.findAll({ where: { hotel_id, user_id }, attributes: { exclude: ['hotel_id', 'user_id'] } })
     .then(data => {
       if (data.length === 0){
         return res.status(404).send({
           message: `cannot find Reviews with user_id = ${user_id} and hotel_id = ${hotel_id}.`,
         });
       }
-        res.send(data);
+        res.send({
+          message: 'successfull',
+          data
+        });
     })
     .catch(() => {
       res.status(500).send({
@@ -107,119 +156,106 @@ exports.findAllByHotelAndUserId = (req, res) => {
 
 exports.findOneById = (req, res) => {
   const { hotel_id, user_id, review_id: id } = req.params;
-  Review.findOne({ where: { hotel_id, user_id, id } })
-    .then((data) => {
-      if(data.length === 0){
+
+  const query = `SELECT coba_review.id, text, labels, rating, dates, Users.name 
+  FROM coba_review INNER JOIN Users ON coba_review.user_id=Users.id WHERE hotel_id=${hotel_id} AND user_id=${user_id} AND coba_review.id=${id}`;
+
+  sequelize.query(query)
+    .then(([results]) => {
+      if(results.length === 0){
         return res.status(404).send({
           message: `cannot find Reviews with user_id = ${user_id}, hotel_id = ${hotel_id}, and review_id = ${id}.`,
         });
       }
-      res.send(data);
+      res.send({
+        message: 'successful',
+        results
+      });
     })
     .catch(() => {
       res.status(500).send({
         message: `cannot find Reviews with user_id = ${user_id}, hotel_id = ${hotel_id}, and review_id = ${id}.`,   
       });
-    })
+    });
 };
 
-// Update a Tutorial by the id in the request
+// Update a Review by the id in the request
 exports.update = (req, res) => {
   const { hotel_id, user_id, review_id: id } = req.params;
-  const textRequest = req.body.text;
+  if (req.userData.id === parseInt(user_id, 10)){
+    if (!req.body.text) {
+      return res.status(400).send({
+        message: "content can not be empty!"
+      });
+    }
 
-  if (!req.body.text) {
-    return res.status(400).send({
-      message: "content can not be empty!"
-    });
-  }
+    axios.post('https://sentiment-analysis-ywu6raktuq-uc.a.run.app', {text:[req.body.text]})
+      .then(response => {
+          const labels = response.data.rounded[0];
+          const review = {
+            text: req.body.text,
+            labels: labels,
+            rating: req.body.rating,
+            dates: new Date(),
+          };
 
-  axios.post('https://sentiment-analysis-ywu6raktuq-uc.a.run.app', {text:[textRequest]})
-    .then(response => {
-        const labels = response.data.rounded[0];
-        const review = {
-          text: req.body.text,
-          labels: labels,
-          rating: req.body.rating,
-          dates: new Date(),
-        };
-
-        Review.sync({ alter: true });
-        Review.update(review, { where: { id } })
-          .then(num => {
-            if (num == 1) {
-              res.send({
-                message: "review was updated successfully.",
-              });
-            } else {
-              res.send({
+          Review.sync({ alter: true });
+          Review.update(review, { where: { id } })
+            .then(num => {
+              if (num == 1) {
+                res.send({
+                  message: "review was updated successfully.",
+                });
+              } else {
+                res.send({
+                  message: `cannot update review with id = ${id}.`,
+                });
+              }
+            })
+            .catch(() => {
+              res.status(500).send({
                 message: `cannot update review with id = ${id}.`,
               });
-            }
-          })
-          .catch(() => {
-            res.status(500).send({
-              message: `cannot update review with id = ${id}.`,
             });
-          });
-    })
-    .catch((error) => {
-      res.status(404).json({
-        message: error
+      })
+      .catch((error) => {
+        res.status(404).json({
+          message: error
+        });
       });
-    })
-
-  
+  } else {
+    res.status(403).send({
+      message: 'forbidden',
+    });
+  }
 };
-// Delete a Tutorial with the specified id in the request
+
+// Delete a Review with the specified id in the request
 exports.delete = (req, res) => {
-    const id = req.params.id;
-    Tutorial.destroy({
+  const { hotel_id, user_id, review_id: id } = req.params;
+  if (req.userData.id === parseInt(user_id, 10)){
+    Review.destroy({
       where: { id: id }
     })
       .then(num => {
         if (num == 1) {
           res.send({
-            message: "Tutorial was deleted successfully!"
+            message: "review was deleted successfully!"
           });
         } else {
           res.send({
-            message: `Cannot delete Tutorial with id=${id}. Maybe Tutorial was not found!`
+            message: `cannot delete review with id = ${id}`,
           });
         }
       })
       .catch(() => {
         res.status(500).send({
-          message: "Could not delete Tutorial with id=" + id
+          message: `cannot delete review with id =  ${id}`,
         });
       });
-  };
-// Delete all Tutorials from the database.
-exports.deleteAll = (req, res) => {
-    Tutorial.destroy({
-      where: {},
-      truncate: false
-    })
-      .then(nums => {
-        res.send({ message: `${nums} Tutorials were deleted successfully!` });
-      })
-      .catch(err => {
-        res.status(500).send({
-          message:
-            err.message || "Some error occurred while removing all tutorials."
-        });
-      });
-  };
-// Find all published Tutorials
-exports.findAllPublished = (req, res) => {
-  Tutorial.findAll({ where: { published: true } })
-    .then(data => {
-      res.send(data);
-    })
-    .catch(err => {
-      res.status(500).send({
-        message:
-          err.message || "Some error occurred while retrieving tutorials."
-      });
+  } else {
+    res.status(403).send({
+      message: 'forbidden',
     });
+  }
 };
