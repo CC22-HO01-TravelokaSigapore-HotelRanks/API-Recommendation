@@ -21,15 +21,15 @@ const register = (req, res) => {
   if (req.body.password) {
     User.findOne({ where: { userName: req.body.userName } }).then((user) => {
       if (user) {
-        return res.status(409).send({
-          message: 'user with the username exists',
+        return res.status(400).send({
+          message: 'username has already been used',
         });
       }
 
       bcrypt.hash(req.body.password, 10, (err, hash) => {
         if (err) {
           return res.status(500).send({
-            message: err,
+            message: err || 'internal server error',
           });
         }
 
@@ -48,15 +48,15 @@ const register = (req, res) => {
         };
 
         User.create(user)
-          .then((user) => {
+          .then(() => {
             res.status(201).send({
-              message: 'user created',
+              message: 'successful',
             });
           })
           .catch((err) => {
             console.log(err);
-            res.status(400).send({
-              message: err,
+            res.status(500).send({
+              message: err || 'internal server error',
             });
           });
       });
@@ -72,15 +72,15 @@ const login = (req, res) => {
   User.findOne({ where: { userName: req.body.userName } })
     .then((user) => {
       if (!user) {
-        return res.status(401).send({
-          message: 'login failed',
+        return res.status(400).send({
+          message: 'there is no user with related credentials',
         });
       }
 
       bcrypt.compare(req.body.password, user.password, (err, result) => {
         if (err) {
-          return res.status(401).send({
-            message: 'login failed',
+          return res.status(500).send({
+            message: err || 'internal server error',
           });
         }
         if (result) {
@@ -112,21 +112,21 @@ const login = (req, res) => {
             secure: true,
           });
           return res.status(200).send({
-            message: 'login successful',
+            message: 'successful',
             data: {
               userId: user.id,
               accessToken,
             },
           });
         }
-        return res.status(401).send({
-          message: 'login failed',
+        return res.status(400).send({
+          message: 'there is no user with the related credentials',
         });
       });
     })
     .catch((err) => {
       res.status(500).send({
-        message: err,
+        message: err || 'internal server error',
       });
     });
 };
@@ -146,7 +146,7 @@ const refreshLogin = (req, res) => {
       jwt.verify(refreshToken, process.env.REFRESH_TOKEN_SECRET_KEY, (err, decoded) => {
         if (err) {
           return res.status(500).send({
-            message: err,
+            message: err || 'internal server error',
           });
         }
 
@@ -171,12 +171,12 @@ const refreshLogin = (req, res) => {
         });
       });
     })
-    .catch((err) => res.status(500).send({ message: err }));
+    .catch((err) => res.status(500).send({ message: err || 'internal server error' }));
 };
 
 const logout = (req, res) => {
   const { refreshToken } = req.cookies;
-  if (!refreshToken) return res.status(404).send({ message: 'fail' });
+  if (!refreshToken) return res.status(404).send({ message: 'already logged out' });
   res.clearCookie('refreshToken');
   res.status(200).send({
     message: 'successful',
@@ -189,15 +189,15 @@ const getUserById = (req, res) => {
       .then((user) => {
         if (!user) {
           return res.status(400).send({
-            message: 'bad request',
+            message: 'user not found',
           });
         }
         return res.send({
-          message: 'sucessfull request',
+          message: 'sucessfull',
           data: user,
         });
       })
-      .catch((err) => res.status(500).send({ message: err }));
+      .catch((err) => res.status(500).send({ message: err || 'internal server error' }));
   } else {
     res.status(403).send({
       message: 'forbidden',
@@ -211,8 +211,7 @@ const update = (req, res) => {
       .then((user) => {
         if (!user) {
           return res.status(400).send({
-            status: 'fail',
-            message: 'user didn\'t exist',
+            message: 'user not found',
           });
         }
 
@@ -228,23 +227,24 @@ const update = (req, res) => {
           { where: { id: user.id } },
         )
           .then((user) => {
+            if (user[0] === 1) {
+              return res.send({
+                message: 'sucessfull',
+              });
+            }
             res.send({
-              status: 'success',
-              message: 'sucessfull update',
-              data: user,
+              message: `fail`,
             });
           })
           .catch((err) => {
             res.status(500).send({
-              status: 'fail',
-              message: err,
+              message: err || 'internal server error',
             });
           });
       })
       .catch((err) => {
         res.status(500).send({
-          status: 'fail',
-          message: err,
+          message: err || 'internal server error',
         });
       });
   } else {
@@ -304,8 +304,7 @@ const googleLogin = async (req, res) => {
           secure: true,
         });
         return res.status(200).send({
-          status: 'success',
-          message: 'auth successful',
+          message: 'successful',
           data: {
             userId: userData.id,
             accessToken,
@@ -315,14 +314,12 @@ const googleLogin = async (req, res) => {
       .catch((err) => {
         console.log(err);
         res.status(500).send({
-          status: 'fail',
-          message: err,
+          message: err || 'internal server error',
         });
       });
   } catch (err) {
     res.status(500).send({
-      status: 'fail',
-      message: err,
+      message: err || 'internal server error',
     });
   }
 };

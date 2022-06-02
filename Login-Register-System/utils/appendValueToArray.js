@@ -2,6 +2,9 @@ module.exports = (user, req) => {
   let newStr = '';
 
   if (!req) {
+    if (user === null) {
+      return `[]`;
+    }
     if (user[0] === '') {
       return `[]`;
     }

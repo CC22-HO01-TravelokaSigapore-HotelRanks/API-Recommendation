@@ -117,6 +117,10 @@ const User = sequelize.define('User', {
       notEmpty: true,
     },
   },
+  reviewCounter: {
+    type: Sequelize.INTEGER,
+    defaultValue: 0,
+  },
 });
 
 module.exports = User;
