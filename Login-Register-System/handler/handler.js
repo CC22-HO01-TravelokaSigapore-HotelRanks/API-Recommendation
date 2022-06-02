@@ -92,7 +92,7 @@ const login = (req, res) => {
             },
             process.env.ACCESS_TOKEN_SECRET_KEY,
             {
-              expiresIn: '1m',
+              expiresIn: '15m',
             },
           );
           const refreshToken = jwt.sign(
@@ -158,7 +158,7 @@ const refreshLogin = (req, res) => {
           },
           process.env.ACCESS_TOKEN_SECRET_KEY,
           {
-            expiresIn: '1m',
+            expiresIn: '15m',
           },
         );
 
@@ -284,7 +284,7 @@ const googleLogin = async (req, res) => {
           },
           process.env.ACCESS_TOKEN_SECRET_KEY,
           {
-            expiresIn: '1m',
+            expiresIn: '15m',
           },
         );
         const refreshToken = jwt.sign(
