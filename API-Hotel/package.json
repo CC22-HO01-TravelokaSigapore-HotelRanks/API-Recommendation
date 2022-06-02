@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/CC22-HO01-TravelokaSigapore-HotelRanks/API-Recommendation#readme",
   "dependencies": {
+    "axios": "^0.27.2",
     "cors": "^2.8.5",
     "dotenv": "^16.0.1",
     "express": "^4.18.1",
