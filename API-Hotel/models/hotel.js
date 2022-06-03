@@ -31,14 +31,14 @@ module.exports=(sequelize,DataTypes)=>{
         },
         // room_type:{type:DataTypes.STRING(12),allowNull: false},
         free_refund:{
-            type:DataTypes.STRING(5),
+            type:DataTypes.BOOLEAN,
             allowNull: false
         },
         type_nearby_destination:{
             type:DataTypes.STRING(61),
             allowNull: false,
             get() {
-                return this.getDataValue('type_nearby_destination').replace('[','').replace(']','').split(',')
+                return this.getDataValue('type_nearby_destination').replace('[','').replace(']','').replaceAll('\'','').split(',')
             },
             set(val) {
                this.setDataValue('type_nearby_destination',val.join(','));
@@ -49,43 +49,43 @@ module.exports=(sequelize,DataTypes)=>{
             allowNull: false
         },
         breakfast:{
-            type:DataTypes.STRING(5),
+            type:DataTypes.BOOLEAN,
             allowNull: false
         },
         pool:{
-            type:DataTypes.STRING(5),
+            type:DataTypes.BOOLEAN,
             allowNull: false
         },
         wifi:{
-            type:DataTypes.STRING(5),
+            type:DataTypes.BOOLEAN,
             allowNull: false
         },
         parking:{
-            type:DataTypes.STRING(5),
+            type:DataTypes.BOOLEAN,
             allowNull: false
         },
         smoking:{
-            type:DataTypes.STRING(5),
+            type:DataTypes.BOOLEAN,
             allowNull: false
         },
         air_conditioner:{
-            type:DataTypes.STRING(5),
+            type:DataTypes.BOOLEAN,
             allowNull: false
         },
         wheelchair_access:{
-            type:DataTypes.STRING(5),
+            type:DataTypes.BOOLEAN,
             allowNull: false
         },
         average_bed_size:{
-            type:DataTypes.STRING(5),
+            type:DataTypes.BOOLEAN,
             allowNull: false
         },
         staff_vaccinated:{
-            type:DataTypes.STRING(5),
+            type:DataTypes.BOOLEAN,
             allowNull: false
         },
         child_area:{
-            type:DataTypes.STRING(5),
+            type:DataTypes.BOOLEAN,
             allowNull: false
         },
         price_category:{
@@ -96,7 +96,7 @@ module.exports=(sequelize,DataTypes)=>{
             type:DataTypes.STRING(851),
             allowNull: false,
             get() {
-                return this.getDataValue('image_links').replace('[','').replace(']','').split(',');
+                return this.getDataValue('image_links').replace('[','').replace(']','').replaceAll('\'','').split(',');
                 // return this.getDataValue('image_links').split(',')
             },
             set(val) {
