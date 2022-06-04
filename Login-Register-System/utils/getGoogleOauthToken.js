@@ -19,6 +19,6 @@ module.exports = async (code) => {
     });
     return res.data;
   } catch (err) {
-    console.log(err);
+    console.log('access token not valid');
   }
 };

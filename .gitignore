@@ -104,3 +104,7 @@ dist
 .tern-port
 
 .env
+
+SA_KEY/
+
+API-Gateway Config/
