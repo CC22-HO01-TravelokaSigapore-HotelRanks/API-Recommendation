@@ -106,3 +106,5 @@ dist
 .env
 
 SA_KEY/
+
+API-Gateway Config/
