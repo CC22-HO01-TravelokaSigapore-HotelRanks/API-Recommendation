@@ -248,7 +248,7 @@
 ---
 #### <font color="crimson">**GET THE DETAILS OF ONE HOTEL**</font>
 
-- <font color="orange">Base URL</font>
+- <font color="orange">**Base URL**</font>
 >https//hotel-test-ywu6raktuq-uc.a.run.app
 
 1. <font color="caulifower">Method</font>
@@ -690,7 +690,7 @@
 ### Review API
 <span style="font-family:san-serif; font-size:15px;">In this Section, There is a Review API that can be used to create, manage, update, and delete through our hotel apps. Response from each URL using JSON format.</span>
 
-- <font color="crimson">Base URL</font>
+- <font color="crimson">**Base URL**</font>
 >https//review-ywu6raktuq-uc.a.run.app
 
 1. <font color="magenta">Path</font>
