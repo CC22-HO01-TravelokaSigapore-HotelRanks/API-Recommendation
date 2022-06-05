@@ -1836,7 +1836,7 @@ This endpoint is to get the hotels that are trending or popular
 - One Hotel Detail
 >https://hotel-test-ywu6raktuq-uc.a.run.app/hotel/details/number
 
-- Reuired
+- Required
 >/[interger]
 
 - Example Request
