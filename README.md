@@ -1,35 +1,41 @@
 # Cloud Computing Path
-Creating RESTful APIs and deploying to Google Cloud Platform Using [Google Cloud Run](https//cloud.google.com/run) for communication between Machine Learning Recommendation System Model and Mobile Development. Creating database in [Google Cloud SQL](https//cloud.google.com/sql)
+<font color="Red"><span style="font-family:liberation sans; font-size:20px;">Creating RESTful APIs and deploying to Google Cloud Platform Using [Google Cloud Run](https//cloud.google.com/run) for communication between Machine Learning Recommendation System Model and Mobile Development. Creating database in [Google Cloud SQL](https//cloud.google.com/sql)</font></span>
 
+---
 
-# RESTful API 
-In making the RESTful APIs we use [Sequelize](https//sequelize.org), [ExpressJS](https//expressjs.com), [CORS](https//enable-cors.org/index.html), [NodeJS](https//nodejs.org/en/) 
+## RESTful API 
+<font color="Yellow"><span style="font-family:liberation sans; font-size:20px;">In making the RESTful APIs we use [Sequelize](https//sequelize.org), [ExpressJS](https//expressjs.com), [CORS](https//enable-cors.org/index.html), [NodeJS](https//nodejs.org/en/) </font></span>
 
-# List APIs
-In this section there is a list of all Hotel APIs that can be Sorted
+---
+## List APIs
+<font color="#00FFAB"><span style="font-family:liberation sans; font-size:20px;">In this section there is a list of all Hotel APIs that can be Sorted
  1. API-Hotel
  2. Login-Register API
- 3. Review API 
+ 3. Review API
 
-# API-Hotel
-In this section there is a Hotel API that can be used to be main foundation of our hotel apps. Response from each URL using JSON format.
+</font> </span>
 
-- Base URL
+---
+
+### API-Hotel
+<span style="font-family:san-serif; font-size:15px;">In this section there is a Hotel API that can be used to be main foundation of our hotel apps. Response from each URL using JSON format.</span>
+
+- <font color="crimson">**Base URL**</font> 
 >https//hotel-test-ywu6raktuq-uc.a.run.app
 
-- Path
+1. <font color="caulifower">Path</font>
 >hotel/list
 
-- Method
+2. <font color="F806CC">Method</font>
 ><Code><font color="green">GET</font></Code> 
 
-- List All Hotel
+3. <font color="cyan">List All Hotel</font>
 >https//hotel-test-ywu6raktuq-uc.a.run.app/hotel/list
 
-- Example request
+4. <font color="gold">Example request</font>
 >curl --location --request GET 'https//hotel-test-ywu6raktuq-uc.a.run.app/hotel/list'
 
-This API is mainly to get the list of the hotel for the users
+<span style="font-family:san-serif; font-size:15px;">This API is mainly to get the list of the hotel for the users
 ```javascript
 {
     {
@@ -72,18 +78,21 @@ This API is mainly to get the list of the hotel for the users
     }
 }
 ```
-- List Hotel By Search
+---
+
+1. <font color="Blue">**List Hotel By Search**</font>
 >https//hotel-test-ywu6raktuq-uc.a.run.app/search?keyword=name
-- Path
+
+2. <font color="caulifower">Path</font>
 >/search?keyword=name
 
-- Required
+3. <font color="cyan">Required</font>
 >Keyword=[varchar]
     
-- Example Request
+4. <font color="gold">Example Request</font>
 >curl --location --request GET 'https//hotel-test-ywu6raktuq-uc.a.run.app/search?keyword=bali'
 
-This endpoint is mainly for searching purposes. The "keyword" parameter is a must when searching. There is a lot of data so we have to take 1 data as a sample
+<span style="font-family:san-serif; font-size:15px;">This endpoint is mainly for searching purposes. The "keyword" parameter is a must when searching. There is a lot of data so we have to take 1 data as a sample</span>
 ```javascript
 {
     "message" "Success",
@@ -126,19 +135,21 @@ This endpoint is mainly for searching purposes. The "keyword" parameter is a mus
         ]
     }
 ```
-- List Hotel By Rating
+---
+
+1. <font color="Blue">**List Hotel By Rating**</font>
 >https//hotel-test-ywu6raktuq-uc.a.run.app/hotel/number
 
-- Path
+2. <font color="caulifower">Path</font>
 >hotel/number
 
-- Required
+3. <font color="cyan">Required</font>
 >rating = [interger]
     
-- Example request
+4. <font color="gold">Example request</font>
 >curl --location --request GET 'https//hotel-test-ywu6raktuq-uc.a.run.app/hotel/5'
 
-This endpoint is mainly to get the rating recommendation of users. There is a lot of data so we have to take 1 data as a sample
+<span style="font-family:san-serif; font-size:15px;">This endpoint is mainly to get the rating recommendation of users. There is a lot of data so we have to take 1 data as a sample</span>
 ```javascript
 {
     "message" "Success",
@@ -179,17 +190,21 @@ This endpoint is mainly to get the rating recommendation of users. There is a lo
         ]
     }
 ```
+---
 
-- List Hotel By Trending
+1. <font color="blue">**List Hotel By Trending**</font>
 >https//hotel-test-ywu6raktuq-uc.a.run.app/hotel/number
 
-- Required
->hotel/interger
+2. <font color="caulifower">Path</font>
+>/number
 
-- Example Request
+3. <font color="cyan">Required</font>
+>/number as [interger]
+
+4. <font color="gold">Example Request</font>
 >curl --location --request GET 'https//hotel-test-ywu6raktuq-uc.a.run.app/hotel/5'
 
-This endpoint is mainly to get the rating recommendation of users. There is a lot of data so we have to take 1 data as a sample
+<span style="font-family:san-serif; font-size:15px;">This endpoint is mainly to get the rating recommendation of users. There is a lot of data so we have to take 1 data as a sample</span>
 ```javascript
 {
     "message" "Success",
@@ -230,18 +245,21 @@ This endpoint is mainly to get the rating recommendation of users. There is a lo
         ]
     }
 ```
-- list hotel by Trending
+---
+
+1. <font color="blue">**list hotel by Trending**</font>
 >https//hotel-test-ywu6raktuq-uc.a.run.app/trending/?page=number&offset=number
-- Path
+
+2. <font color="caulifower">Path</font>
 >trending/?page=number&offset=number
 
-- Required
+3. <font color="cyan">Required</font>
 >page=[interger]& offset=[interger]
 
-- Example request
+4. <font color="gold">Example request</font>
 >https//hotel-test-ywu6raktuq-uc.a.run.app/trending/?page=10&offset=0
 
-This endpoint is used to get the hotels that are trending or popular. There is a lot of data so we have to take 1 data as a sample
+<span style="font-family:san-serif; font-size:15px;">This endpoint is used to get the hotels that are trending or popular. There is a lot of data so we have to take 1 data as a sample</span>
 ```javascript
 {
     "message" "Success",
@@ -282,23 +300,25 @@ This endpoint is used to get the hotels that are trending or popular. There is a
         ]
     }
 ```
-- Get The Details of one hotel
-- Base URL
+---
+#### <font color="crimson">**GET THE DETAILS OF ONE HOTEL**</font>
+
+- <font color="orange">Base URL</font>
 >https//hotel-test-ywu6raktuq-uc.a.run.app
 
-- Method
+1. <font color="caulifower">Method</font>
 ><Code><font color="yellow">POST</font></Code>
 
-- One Hotel Detail
+2. <font color="cyan">One Hotel Detail</font>
 >https//hotel-test-ywu6raktuq-uc.a.run.app/hotel/details/number
 
-- Required
+3. <font color="gold">Required</font>
 >/[interger]
 
-- Example Request
+4. <font color="F32424">Example Request</font>
 >curl --location --request POST 'https//hotel-test-ywu6raktuq-uc.a.run.app/hotel/details/50'
 
-This endpoint is used to get the details of one hotel.
+<span style="font-family:san-serif; font-size:15px;">This endpoint is used to get the details of one hotel.</span>
 ```javascript
 {
     "message" "Success",
@@ -338,16 +358,16 @@ This endpoint is used to get the details of one hotel.
         }
     }
 ```
-- User Recommendation
+1. <font color="orange">**User Recommendation**</font>
 >https//hotel-test-ywu6raktuq-uc.a.run.app/user-recommendation/number
 
-- Required
+2. <font color="caulifower">Required</font>
 >/[interger]
 
-- Example Request
+3. <font color="Gold">Example Request</font>
 >curl --location --request POST 'https//hotel-test-ywu6raktuq-uc.a.run.app/user-recommendation/110'
 
-This Endpoint is used to get user preferences recommendation. Thre is a Lot of data so we have to take 1 data as a sample.
+<span style="font-family:san-serif; font-size:15px;">This Endpoint is used to get user preferences recommendation. Thre is a Lot of data so we have to take 1 data as a sample. </span>
 ```javascript
 {
     "message" "Success",
@@ -390,16 +410,16 @@ This Endpoint is used to get user preferences recommendation. Thre is a Lot of d
         ]
     }
 ```
-- Hotel Recommendation
+1. <font color="orange">**Hotel Recommendation**</font>
 >https//hotel-test-ywu6raktuq-uc.a.run.app/hotel-recommendation/number
 
-- Required
+2. <font color="caulifower">Required</font>
 >/[interger]
 
-- Example Request
+3. <font color="Gold">Example Request</font>
 >curl --location --request POST 'https//hotel-test-ywu6raktuq-uc.a.run.app/hotel-recommendation/50'
 
-This endpoint is used to get the hotel recommendation based on hotel. There is a lot of data so we have to take 1 data as a sample
+<span style="font-family:san-serif; font-size:15px;">This endpoint is used to get the hotel recommendation based on hotel. There is a lot of data so we have to take 1 data as a sample</span>
 ```javascript
 {
     "message" "Success",
@@ -441,13 +461,14 @@ This endpoint is used to get the hotel recommendation based on hotel. There is a
         ]
     }
 ```
-- By Location Recommendation
+---
+1. <font color="85586F">**By Location Recommendation**</font>
 >https//hotel-test-ywu6raktuq-uc.a.run.app
 
-- Required
+- <font color="caulifower">Required</font>
 >/byLocation
 
-- Example Request
+- <font color="Gold">Example Request</font>
 >curl --location --request POST 'https//hotel-test-ywu6raktuq-uc.a.run.app/byLocation/' \
 --data-raw '{
     "user_id"10,
@@ -455,7 +476,7 @@ This endpoint is used to get the hotel recommendation based on hotel. There is a
     "latitude"35.6
 }'
 
-This endpoint is strictly for giving recommendation for users by their location. 
+<span style="font-family:san-serif; font-size:15px;">This endpoint is strictly for giving recommendation for users by their location.</span> 
 ```javascript
 {
     "message" "Success",
@@ -495,13 +516,15 @@ This endpoint is strictly for giving recommendation for users by their location.
     ]
 }
 ```
-- For You
+---
+
+1. <font color="F190B7">**For You**</font>
 >https://hotel-test-ywu6raktuq-uc.a.run.app
 
-- Path
+2. <font color="caulifower">Path</font>
 >/for-you
 
-- Example Request
+3. <font color="gold">Example Request</font>
 >curl --location --request POST 'https://hotel-test-ywu6raktuq-uc.a.run.app/for-you/' \
 --data-raw '{
     "user_id":4,
@@ -509,7 +532,7 @@ This endpoint is strictly for giving recommendation for users by their location.
     "latitude":35.6
 }'
 
-This endpoint is mainly used to give users the perfect recommendation for them. There is a lot of data so we have to take 1 data as a sample
+<span style="font-family:san-serif; font-size:15px;">This endpoint is mainly used to give users the perfect recommendation for them. There is a lot of data so we have to take 1 data as a sample</span>
 ```javascript
 {
     "message": "Success",
@@ -549,44 +572,48 @@ This endpoint is mainly used to give users the perfect recommendation for them. 
     ]
 }
 ```
+---
 
+### Login-Register API
+<span style="font-family:san-serif; font-size:15px;">In this Section, There is a Login-Register API That can be used as Login and Register System For Our Hotel apps. Response from each URL using JSON format.</span>
 
-# Login-Register API
-In this Section, There is a Login-Register API That can be used as Login and Register System For Our Hotel apps. Response from each URL using JSON format.
-
-- Base URL
+- <font color="crimson">**Base URL**</font>
 >https//test1-ywu6raktuq-uc.a.run.app
 
-- Path
+1. <font color="caulifower">Path</font>
 >/user
 
-- Method
+2.  <font color="Red">Method</font>
 ><Code><font color="Yellow">POST</font></Code> 
 
-- User Registration
+3. <font color="cyan">User Registration</font>
 >https//test1-ywu6raktuq-uc.a.run.app/user/register
 
-- Example request
+4. <font color="gold">Example request</font>
 >curl --location --request POST 'https//test1-ywu6raktuq-uc.a.run.app/user/register' \
 --data-urlencode 'email=' \
 --data-urlencode 'userName=' \
 --data-urlencode 'password='
 
-This endpoint is used to Registering User
+<span style="font-family:san-serif; font-size:15px;">This endpoint is used to Registering User</span>
 ```javascript
 {
     "message" "successful"
 }
 ```
-- User Login
->https//test1-ywu6raktuq-uc.a.run.app/user/login
+---
+1. <font color="Magenta">User Login</font>
+>https//test1-ywu6raktuq-uc.a.run.app/user
 
-- Example Request
+2. <font color="Red">Path</font>
+>/login
+
+3. <font color="Gold">Example Request</font>
 >curl --location --request POST 'https//test1-ywu6raktuq-uc.a.run.app/user/login' \
 --data-urlencode 'userName=' \
 --data-urlencode 'password='
 
-This endpoint is used to User Login Without Google
+<span style="font-family:san-serif; font-size:15px;">This endpoint is used to User Login Without Google</span>
 ```javascript
 {
     "message" "successful",
@@ -596,16 +623,18 @@ This endpoint is used to User Login Without Google
     }
 }
 ```
-- LOG IN with GOOGLE
+---
+
+1. <font color="F1D00A">LOG IN with GOOGLE</font>
 >https//test1-ywu6raktuq-uc.a.run.app/user/login/google?code={{codeToken}}
 
-- Method
+2. <font color="2666CF">Method</font>
 ><Code><font color="Green">GET</font></Code> 
 
-- Example request
+3. <font color="Red">Example request</font>
 >curl --location -g --request GET 'https//test1-ywu6raktuq-uc.a.run.app/user/login/google?code={{codeToken}}'
 
-This Endpoint is used to User Login With Google
+<span style="font-family:san-serif; font-size:15px;">This Endpoint is used to User Login With Google</span>
 ```javascript
 {
     "message" "successful",
@@ -615,14 +644,15 @@ This Endpoint is used to User Login With Google
     }
 }
 ```
-- GET USER BY ID
+---
+1. <font color="F76E11">GET USER BY ID</font>
 >https//test1-ywu6raktuq-uc.a.run.app/user/
 
-- Example request
+2. <font color="Gold">Example request</font>
 >curl --location --request GET 'https//test1-ywu6raktuq-uc.a.run.app/user/' \
 --header 'Authorization Bearer •••••••'
 
-This Endpoint is used to Get the User By id 
+<span style="font-family:san-serif; font-size:15px;">This Endpoint is used to Get the User By id</span>
 ```javascript
 {
     "message" "sucessfull",
@@ -652,16 +682,17 @@ This Endpoint is used to Get the User By id
     }
 }
 ```
-- REFRESH LOGIN
+---
+1. <font color="EC994B">REFRESH LOGIN</font>
 >https//test1-ywu6raktuq-uc.a.run.app/user/login
 
-- Required
+2. <font color="caulifower">Required</font>
 >/refresh-login
 
-- Example Request
+3. <font color="Gold">Example Request</font>
 >curl --location --request GET 'https//test1-ywu6raktuq-uc.a.run.app/user/login/refresh-login'
 
-Request to get a new 'access token' for getting session/to login. This request will be use 'cache' that set to the client before in Login to do this request
+<span style="font-family:san-serif; font-size:15px;">Request to get a new 'access token' for getting session/to login. This request will be use 'cache' that set to the client before in Login to do this request</span>
 ```javascript
 {
     "message" "successful",
@@ -671,58 +702,61 @@ Request to get a new 'access token' for getting session/to login. This request w
     }
 }
 ```
+---
 
-- UPDATE USER BY ID
+1. <font color="EFD345">UPDATE USER BY ID</font>
 >https//test1-ywu6raktuq-uc.a.run.app/user/
 
-- Method
+2. <font color="caulifower">Method</font>
 ><Code><font color="#4B7BE5">PUT</font></Code> 
 
-- Example Request
+3. <font color="gold">Example Request</font>
 >curl --location --request PUT 'https//test1-ywu6raktuq-uc.a.run.app/user/' \
 --header 'Authorization Bearer •••••••'
 
-This Endpoint is used to update user needs by looking for userId
+<span style="font-family:san-serif; font-size:15px;">This Endpoint is used to update user needs by looking for userId</span>
 ```javascript
 {
     "message" "sucessfull"
 }
 ```
-- LOGOUT
+---
+1. <font color="red">LOGOUT</font>
 >https//test1-ywu6raktuq-uc.a.run.app/user
 
-- Required
+2. <font color="caulifower">Required</font>
 >/logout
 
-- Method
+3. <font color="cyan">Method</font>
 ><Code><font color="F32424">DELETE</font></Code>
 
-- Example Request
+4. <font color="gold">Example Request</font>
 >curl --location --request DELETE 'https//test1-ywu6raktuq-uc.a.run.app/user/logout'
 
-Logout session by delete the 'refresh token' in cache
+<span style="font-family:san-serif; font-size:15px;">Logout session by delete the 'refresh token' in cache</span>
 ```javascript
 {
     "message" "successful"
 }
 ```
+---
 
-# Review API
-In this Section, There is a Review API that can be used to create, manage, update, and delete through our hotel apps. Response from each URL using JSON format.
+### Review API
+<span style="font-family:san-serif; font-size:15px;">In this Section, There is a Review API that can be used to create, manage, update, and delete through our hotel apps. Response from each URL using JSON format.</span>
 
-- Base URL
+- <font color="crimson">Base URL</font>
 >https//review-ywu6raktuq-uc.a.run.app
 
-- Path
+1. <font color="magenta">Path</font>
 >/reviews
 
-- Required
+2. <font color="orange">Required</font>
 >/{hotelId} as [interger]/ {userId} as [interger]
 
-- Method
+3. <font color="teal">Method</font>
 ><Code><font color="Yellow">POST</font></Code>
 
-- Example Request
+4. <font color="gold">Example Request</font>
 >curl --location -g --request POST 'https//review-ywu6raktuq-uc.a.run.app/reviews/{{hotelId}}/{{userId}}' \
 --header 'Authorization Bearer {{accessToken}}' \
 --data-raw '{
@@ -730,22 +764,23 @@ In this Section, There is a Review API that can be used to create, manage, updat
     "rating" 2
 }'
 
-This endpoint to creates new reviews based on specific hotelId and userId
+<span style="font-family:san-serif; font-size:15px;">This endpoint to creates new reviews based on specific hotelId and userId</span>
 ```javascript
 {
     "message" "post review success"
 }
 ```
-- Find All Reviews
+---
+1. <font color="magenta">Find All Reviews</font>
 >https//review-ywu6raktuq-uc.a.run.app/reviews
 
-- Method
+2. <font color="orange">Method</font>
 ><Code><font color="Green">GET</font></Code> 
 
-- Example Request
+3. <font color="gold">Example Request</font>
 >curl --location --request GET 'https//review-ywu6raktuq-uc.a.run.app/reviews'
 
-This endpoint is used to list all the reviews. This endpoint will display a lot of data. We only take 1 data as a sample
+<span style="font-family:san-serif; font-size:15px;">This endpoint is used to list all the reviews. This endpoint will display a lot of data. We only take 1 data as a sample</span>
 ```javascript
 [
     {
@@ -759,16 +794,17 @@ This endpoint is used to list all the reviews. This endpoint will display a lot 
     }
 ]
 ```
-- Find Reviews By Hotel Id
+---
+1. <font color="magenta">Find Reviews By Hotel Id</font>
 >https//review-ywu6raktuq-uc.a.run.app/reviews
 
-- Required
+2. <font color="orange">Required</font>
 >/{hotelId} as [interger]?page&offset
 
-- Example Request
+3. <font color="gold">Example Request</font>
 >curl --location -g --request GET 'https//review-ywu6raktuq-uc.a.run.app/reviews/{{hotelId}}?page&offset'
 
-This endpoint is used to list all reviews regarding to specific hotelId. In the real test on postman there is 101 data so we take 1 data for sample
+<span style="font-family:san-serif; font-size:15px;">This endpoint is used to list all reviews regarding to specific hotelId. In the real test on postman there is 101 data so we take 1 data for sample</span>
 ```javascript
 {
     "message" "successful",
@@ -786,17 +822,18 @@ This endpoint is used to list all reviews regarding to specific hotelId. In the 
     ]
 }
 ```
+---
 
-- Find Reviews By Hotel Id and User Id
+1. <font color="magenta">Find Reviews By Hotel Id and User Id</font>
 >https//review-ywu6raktuq-uc.a.run.app/reviews
 
-- Required
+2. <font color="orange">Required</font>
 >/{hotelId} as [interger]/{userId} as [interger]
 
-- Example Request
+3. <font color="gold">Example Request</font>
 >curl --location -g --request GET 'https//review-ywu6raktuq-uc.a.run.app/reviews/{{hotelId}}/{{userId}}'
 
-This endpoint is used to list all reviews regarding to specific hotelId and userId
+<span style="font-family:san-serif; font-size:15px;">This endpoint is used to list all reviews regarding to specific hotelId and userId</span>
 ```javascript
 {
     "message" "successful",
@@ -811,16 +848,18 @@ This endpoint is used to list all reviews regarding to specific hotelId and user
     ]
 }
 ```
-- Find Specific Review By Hotel Id, User Id, and Review Id
+---
+
+1. <font color="magenta">Find Specific Review By Hotel Id, User Id, and Review Id</font>
 >https//review-ywu6raktuq-uc.a.run.app/reviews
 
-- Required
+2. <font color="orange">Required</font>
 >/{hotelId} as [interger]/{userId} as [interger]/{reviewId} as [interger]
 
-- Example Request
+3. <font color="gold">Example Request</font>
 >curl --location -g --request GET 'https//review-ywu6raktuq-uc.a.run.app/reviews/{{hotelId}}/{{userId}}/{{reviewId}}'
 
-This endpoint is used to list all reviews regarding to specific hotelId , userId, and reviewId itself
+<span style="font-family:san-serif; font-size:15px;">This endpoint is used to list all reviews regarding to specific hotelId , userId, and reviewId itself</span>
 ```javascript
 {
     "message" "successful",
@@ -834,13 +873,15 @@ This endpoint is used to list all reviews regarding to specific hotelId , userId
     }
 }
 ```
-- Update By Review Id
+---
+
+1. <font color="magenta">Update By Review Id</font>
 >https//review-ywu6raktuq-uc.a.run.app/reviews
 
-- Required
+2. <font color="orange">Required</font>
 >/{hotelId} as [interger]/{userId} as [interger]/{reviewId} as [interger]
 
-- Example Request
+3. <font color="gold">Example Request</font>
 >curl --location -g --request PUT 'https//review-ywu6raktuq-uc.a.run.app/reviews/{{hotelId}}/{{userId}}/{{reviewId}}' \
 --header 'Authorization Bearer {{accessToken}}' \
 --data-raw '{
@@ -848,25 +889,29 @@ This endpoint is used to list all reviews regarding to specific hotelId , userId
     "rating" 4
 }'
 
-This endpoint is used to allow users edit their reviews regarding to specific hotelId , userId, and reviewId itself
+<span style="font-family:san-serif; font-size:15px;">This endpoint is used to allow users edit their reviews regarding to specific hotelId , userId, and reviewId itself</span>
 ```javascript
 {
     "message" "review was updated successfully."
 }
 ```
-- Delete By Review Id
+---
+
+1. <font color="magenta">Delete By Review Id</font>
 >https//review-ywu6raktuq-uc.a.run.app/reviews
 
-- Required
+2. <font color="orange">Required</font>
 >/{hotelId} as [interger]/{userId} as [interger]/{reviewId} as [interger]
 
-- Example Request
+3. <font color="gold">Example Request</font>
 >curl --location -g --request DELETE 'https//review-ywu6raktuq-uc.a.run.app/reviews/{{hotelId}}/{{userId}}/{{reviewId}}' \
 --header 'Authorization Bearer {{accessToken}}'
 
-This endpoint is used to allow users delete their reviews regarding to specific hotelId , userId, and reviewId itself
+<span style="font-family:san-serif; font-size:15px;">This endpoint is used to allow users delete their reviews regarding to specific hotelId , userId, and reviewId itself</span>
 ```javascript
 {
     "message" "review was deleted successfully!"
 }
 ```
+---
+<span style="font-family:san-serif; font-size:40px;">Thank You For the Oppoturnity</span>
