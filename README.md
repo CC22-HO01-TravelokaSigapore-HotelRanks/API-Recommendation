@@ -10,8 +10,7 @@ In making the RESTful APIs we use [Sequelize](https//sequelize.org), [ExpressJS]
 In this section there is a list of all Hotel APIs that can be Sorted
  1. API-Hotel
  2. Login-Register API
- 3. Review API
-![Gambar API](https//www.pngitem.com/pimgs/m/417-4174723_application-programming-interface-tradeix-network-infrastructure-icon-png.png) 
+ 3. Review API 
 
 # API-Hotel
 In this section there is a Hotel API that can be used to be main foundation of our hotel apps. Response from each URL using JSON format.
