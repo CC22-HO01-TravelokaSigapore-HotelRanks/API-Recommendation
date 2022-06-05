@@ -1471,7 +1471,8 @@ This endpoint is mainly to get the rating recommendation of users.
 >https://hotel-test-ywu6raktuq-uc.a.run.app/trending/?page=number&offset=number
 - Path
 >trending/?page=number&offset=number
-- required
+
+- Required
 >page=[interger]& offset=[interger]
 
 - Example request
