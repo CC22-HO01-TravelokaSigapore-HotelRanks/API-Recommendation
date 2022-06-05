@@ -1478,7 +1478,7 @@ This endpoint is mainly to get the rating recommendation of users.
 - Example request
 >https://hotel-test-ywu6raktuq-uc.a.run.app/trending/?page=10&offset=0
 
-This endpoint is to get the hotels that are trending or popular
+This endpoint is used to get the hotels that are trending or popular
 ```javascript
 {
     "message": "Success",
@@ -1843,7 +1843,7 @@ This endpoint is to get the hotels that are trending or popular
 - Example Request
 >curl --location --request POST 'https://hotel-test-ywu6raktuq-uc.a.run.app/hotel/details/50'
 
-This endpoint is to get the details of one hotel.
+This endpoint is used to get the details of one hotel.
 ```javascript
 {
     "message": "Success",
@@ -2252,7 +2252,7 @@ This Endpoint is used to get user preferences recommendation
 - Example Request
 >curl --location --request POST 'https://hotel-test-ywu6raktuq-uc.a.run.app/hotel-recommendation/50'
 
-This endpoint is to get the hotel recommendation based on hotel
+This endpoint is used to get the hotel recommendation based on hotel
 ```javascript
 {
     "message": "Success",
@@ -2984,7 +2984,7 @@ In this Section, There is a Login-Register API That can be used as Login and Reg
 --data-urlencode 'userName=' \
 --data-urlencode 'password='
 
-This endpoint is to Registering User
+This endpoint is used to Registering User
 ```javascript
 {
     "message": "successful"
@@ -2998,7 +2998,7 @@ This endpoint is to Registering User
 --data-urlencode 'userName=' \
 --data-urlencode 'password='
 
-This endpoint is to User Login Without Google
+This endpoint is used to User Login Without Google
 ```javascript
 {
     "message": "successful",
@@ -3017,7 +3017,7 @@ This endpoint is to User Login Without Google
 - Example request
 >curl --location -g --request GET 'https://test1-ywu6raktuq-uc.a.run.app/user/login/google?code={{codeToken}}'
 
-This Endpoint is to User Login With Google
+This Endpoint is used to User Login With Google
 ```javascript
 {
     "message": "successful",
@@ -3034,7 +3034,7 @@ This Endpoint is to User Login With Google
 >curl --location --request GET 'https://test1-ywu6raktuq-uc.a.run.app/user/' \
 --header 'Authorization: Bearer •••••••'
 
-This Endpoint is to Get the User By id 
+This Endpoint is used to Get the User By id 
 ```javascript
 {
     "message": "sucessfull",
@@ -3094,7 +3094,7 @@ Request to get a new 'access token' for getting session/to login. This request w
 >curl --location --request PUT 'https://test1-ywu6raktuq-uc.a.run.app/user/' \
 --header 'Authorization: Bearer •••••••'
 
-This Endpoint is to update user needs by looking for userId
+This Endpoint is used to update user needs by looking for userId
 ```javascript
 {
     "message": "sucessfull"
@@ -3157,7 +3157,7 @@ This endpoint to creates new reviews based on specific hotelId and userId
 - Example Request
 >curl --location --request GET 'https://review-ywu6raktuq-uc.a.run.app/reviews'
 
-This endpoint is to list all the reviews. there's a lot
+This endpoint is used to list all the reviews. there's a lot
 ```javascript
 [
     {
@@ -4062,7 +4062,7 @@ This endpoint is to list all the reviews. there's a lot
     },
     {
         "id": 9779,
-        "text": "location excellent as we caught the train from paris to milan",
+        "text": "location excellent as we caught the train from paris used to milan",
         "labels": 1,
         "rating": 4,
         "dates": "2022-02-19T05:49:11.000Z",
@@ -4674,7 +4674,7 @@ This endpoint is to list all the reviews. there's a lot
     },
     {
         "id": 9847,
-        "text": "doorway is too tight but everything is ok",
+        "text": "doorway is used too tight but everything is ok",
         "labels": 0,
         "rating": 2,
         "dates": "2022-05-11T19:14:26.000Z",
@@ -4791,7 +4791,7 @@ This endpoint is to list all the reviews. there's a lot
 - Example Request
 >curl --location -g --request GET 'https://review-ywu6raktuq-uc.a.run.app/reviews/{{hotelId}}?page&offset'
 
-This endpoint is to list all reviews regarding to specific hotelId
+This endpoint is used to list all reviews regarding to specific hotelId
 ```javascript
 {
     "message": "successful",
@@ -5186,7 +5186,7 @@ This endpoint is to list all reviews regarding to specific hotelId
         },
         {
             "id": 4164,
-            "text": "the bathroom was like a sauna heating on full blast and no way to turn it off the lift is too small to take a pram hall ways are too narrow i had to walk like a crab with pram and car seat and the room is small",
+            "text": "the bathroom was like a sauna heating on full blast and no way to turn it off the lift is used too small to take a pram hall ways are too narrow i had to walk like a crab with pram and car seat and the room is small",
             "labels": 0,
             "rating": 2,
             "dates": "2022-05-05T04:35:06.000Z",
@@ -5366,7 +5366,7 @@ This endpoint is to list all reviews regarding to specific hotelId
         },
         {
             "id": 6845,
-            "text": "we have persons when i booking on this website they described this suite have two bedrooms but in fact only use transparent curtain to separate bed and lounge where put small sofa bed it is totally wrong info from booking com so we have to take one more suite when we checking in the outside of the hotel is terrible dirty and not safe feeling but near to airport and exhibition it is good for me",
+            "text": "we have persons when i booking on this website they described this suite have two bedrooms but in fact only use transparent curtain to separate bed and lounge where put small sofa bed it is used totally wrong info from booking com so we have to take one more suite when we checking in the outside of the hotel is terrible dirty and not safe feeling but near to airport and exhibition it is good for me",
             "labels": 0,
             "rating": 2,
             "dates": "2022-02-13T11:43:02.000Z",
@@ -5528,7 +5528,7 @@ This endpoint is to list all reviews regarding to specific hotelId
         },
         {
             "id": 8293,
-            "text": "everything s is too bad only location was good",
+            "text": "everything s is used too bad only location was good",
             "labels": 0,
             "rating": 3,
             "dates": "2022-05-07T20:19:17.000Z",
@@ -5719,7 +5719,7 @@ This endpoint is to list all reviews regarding to specific hotelId
 - Example Request
 >curl --location -g --request GET 'https://review-ywu6raktuq-uc.a.run.app/reviews/{{hotelId}}/{{userId}}'
 
-This endpoint is to list all reviews regarding to specific hotelId and userId
+This endpoint is used to list all reviews regarding to specific hotelId and userId
 ```javascript
 {
     "message": "successful",
@@ -5743,7 +5743,7 @@ This endpoint is to list all reviews regarding to specific hotelId and userId
 - Example Request
 >curl --location -g --request GET 'https://review-ywu6raktuq-uc.a.run.app/reviews/{{hotelId}}/{{userId}}/{{reviewId}}'
 
-This endpoint is to list all reviews regarding to specific hotelId , userId, and reviewId itself
+This endpoint is used to list all reviews regarding to specific hotelId , userId, and reviewId itself
 ```javascript
 {
     "message": "successful",
@@ -5771,7 +5771,7 @@ This endpoint is to list all reviews regarding to specific hotelId , userId, and
     "rating": 4
 }'
 
-This endpoint is to allow users edit their reviews regarding to specific hotelId , userId, and reviewId itself
+This endpoint is used to allow users edit their reviews regarding to specific hotelId , userId, and reviewId itself
 ```javascript
 {
     "message": "review was updated successfully."
@@ -5787,7 +5787,7 @@ This endpoint is to allow users edit their reviews regarding to specific hotelId
 >curl --location -g --request DELETE 'https://review-ywu6raktuq-uc.a.run.app/reviews/{{hotelId}}/{{userId}}/{{reviewId}}' \
 --header 'Authorization: Bearer {{accessToken}}'
 
-This endpoint is to allow users delete their reviews regarding to specific hotelId , userId, and reviewId itself
+This endpoint is used to allow users delete their reviews regarding to specific hotelId , userId, and reviewId itself
 ```javascript
 {
     "message": "review was deleted successfully!"
