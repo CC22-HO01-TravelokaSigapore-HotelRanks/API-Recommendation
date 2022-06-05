@@ -407,13 +407,14 @@
     }
 ```
 ---
+
 1. <font color="85586F">**By Location Recommendation**</font>
 >https//hotel-test-ywu6raktuq-uc.a.run.app
 
-- <font color="caulifower">Required</font>
+2. <font color="caulifower">Required</font>
 >/byLocation
 
-- <font color="Gold">Example Request</font>
+3. <font color="Gold">Example Request</font>
 >curl --location --request POST 'https//hotel-test-ywu6raktuq-uc.a.run.app/byLocation/' \
 --data-raw '{
     "user_id"10,
