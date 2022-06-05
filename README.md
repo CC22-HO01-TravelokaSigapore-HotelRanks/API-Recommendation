@@ -246,7 +246,7 @@
     }
 ```
 ---
-#### <font color="crimson">**GET THE DETAILS OF ONE HOTEL**</font>
+<font color="crimson">**GET THE DETAILS OF ONE HOTEL**</font>
 
 - <font color="orange">**Base URL**</font>
 >https//hotel-test-ywu6raktuq-uc.a.run.app
