@@ -2,6 +2,7 @@ const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 
 const getGoogleOauthToken = require('../utils/getGoogleOauthToken');
+const getJsonWebtoken = require('../utils/getJsonWebToken');
 const append = require('../utils/appendValueToArray');
 const User = require('../models/model');
 const replace = require('../utils/replaceValueToArray');
@@ -84,28 +85,9 @@ const login = (req, res) => {
           });
         }
         if (result) {
-          const accessToken = jwt.sign(
-            {
-              email: user.email,
-              id: user.id,
-              userName: user.userName,
-            },
-            process.env.ACCESS_TOKEN_SECRET_KEY,
-            {
-              expiresIn: '15m',
-            },
-          );
-          const refreshToken = jwt.sign(
-            {
-              email: user.email,
-              id: user.id,
-              userName: user.userName,
-            },
-            process.env.REFRESH_TOKEN_SECRET_KEY,
-            {
-              expiresIn: '30d',
-            },
-          );
+          const accessToken = getJsonWebtoken.accessToken(user);
+          const refreshToken = getJsonWebtoken.refreshToken(user);
+
           res.cookie('refreshToken', refreshToken, {
             httpOnly: true,
             maxAge: 2.592e+9,
@@ -150,17 +132,7 @@ const refreshLogin = (req, res) => {
           });
         }
 
-        const accessToken = jwt.sign(
-          {
-            email: decoded.email,
-            id: decoded.id,
-            userName: decoded.userName,
-          },
-          process.env.ACCESS_TOKEN_SECRET_KEY,
-          {
-            expiresIn: '15m',
-          },
-        );
+        const accessToken = getJsonWebtoken.accessToken(decoded);
 
         return res.status(200).send({
           message: 'successful',
@@ -276,28 +248,10 @@ const googleLogin = async (req, res) => {
     })
       .then((user, created) => {
         const userData = user[0].dataValues;
-        const accessToken = jwt.sign(
-          {
-            email: userData.email,
-            id: userData.id,
-            userName: userData.userName,
-          },
-          process.env.ACCESS_TOKEN_SECRET_KEY,
-          {
-            expiresIn: '15m',
-          },
-        );
-        const refreshToken = jwt.sign(
-          {
-            email: user.email,
-            id: user.id,
-            userName: user.userName,
-          },
-          process.env.REFRESH_TOKEN_SECRET_KEY,
-          {
-            expiresIn: '30d',
-          },
-        );
+
+        const accessToken = getJsonWebtoken.accessToken(userData);
+        const refreshToken = getJsonWebtoken.refreshToken(userData);
+
         res.cookie('refreshToken', refreshToken, {
           httpOnly: true,
           maxAge: 2.592e+9,
