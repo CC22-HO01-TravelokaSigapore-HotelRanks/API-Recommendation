@@ -1,10 +1,10 @@
 # Cloud Computing Path
-<details><summary markdown="span">Cloud Computing Path</summary>Creating RESTful APIs and deploying to Google Cloud Platform Using [Google Cloud Run](https//cloud.google.com/run) for communication between Machine Learning Recommendation System Model and Mobile Development. Creating database in [Google Cloud SQL](https//cloud.google.com/sql)</details>
+Creating RESTful APIs and deploying to Google Cloud Platform Using [Google Cloud Run](https//cloud.google.com/run) for communication between Machine Learning Recommendation System Model and Mobile Development. Creating database in [Google Cloud SQL](https//cloud.google.com/sql)
 
 ---
 
 ## RESTful API 
-<details><summary markdown="span">RESTful API</summary>in making the RESTful APIs we use [Sequelize](https//sequelize.org), [ExpressJS](https//expressjs.com), [CORS](https//enable-cors.org/index.html), [NodeJS](https//nodejs.org/en/)</details>
+RESTful API</summary>in making the RESTful APIs we use [Sequelize](https//sequelize.org), [ExpressJS](https//expressjs.com), [CORS](https//enable-cors.org/index.html), [NodeJS](https//nodejs.org/en/)</details>
 
 ---
 ## The List Of APIs
@@ -19,7 +19,7 @@
 ---
 
 ### API-Hotel
-<details><summary markdown="span">API-Hotel</summary>In this section there is a Hotel API that can be used to be main foundation of our hotel apps. Response from each URL using JSON format.</details>
+In this section there is a Hotel API that can be used to be main foundation of our hotel apps. Response from each URL using JSON format.
 
 - <span style="color:crimson;font-weight:400;font-size:20px">**Base URL**</span> 
 >https//hotel-test-ywu6raktuq-uc.a.run.app
@@ -36,7 +36,8 @@
 4. <span style="color:gold;font-weight:700;font-size:17px">Example request</span>
 >curl --location --request GET 'https//hotel-test-ywu6raktuq-uc.a.run.app/hotel/list'
 
-<details><summary markdown="span">Result For Request List all Hotel </summary>This API is mainly to get the list of the hotel for the users
+<details><summary markdown="span">Result For Request list all hotel</summary>This API is mainly to get the list of the hotel for the users
+
 ```javascript
 {
     {
@@ -140,7 +141,6 @@
     }
 ```
 </details>
-
 ---
 
 1. <font color="Blue">**List Hotel By Rating**</font>
@@ -155,7 +155,8 @@
 4. <font color="gold">Example request</font>
 >curl --location --request GET 'https//hotel-test-ywu6raktuq-uc.a.run.app/hotel/5'
 
-<span style="font-family:san-serif; font-size:15px;">This endpoint is mainly to get the rating recommendation of users. There is a lot of data so we have to take 1 data as a sample</span>
+<details><summary markdown="span">Result For Request based on Rating</summary>This endpoint is mainly to get the rating recommendation of users. There is a lot of data so we have to take 1 data as a sample
+
 ```javascript
 {
     "message" "Success",
@@ -196,6 +197,8 @@
         ]
     }
 ```
+</details>
+
 ---
 
 1. <font color="blue">**list hotel by Trending**</font>
@@ -210,7 +213,8 @@
 4. <font color="gold">Example request</font>
 >https//hotel-test-ywu6raktuq-uc.a.run.app/trending/?page=10&offset=0
 
-<span style="font-family:san-serif; font-size:15px;">This endpoint is used to get the hotels that are trending or popular. There is a lot of data so we have to take 1 data as a sample</span>
+<details><summary markdown="span">Result For Request based on Trending</summary>This endpoint is used to get the hotels that are trending or popular. There is a lot of data so we have to take 1 data as a sample
+
 ```javascript
 {
     "message" "Success",
@@ -251,7 +255,10 @@
         ]
     }
 ```
+</details>
+
 ---
+
 <font color="crimson">**GET THE DETAILS OF ONE HOTEL**</font>
 
 - <font color="orange">**Base URL**</font>
@@ -269,7 +276,8 @@
 4. <font color="F32424">Example Request</font>
 >curl --location --request POST 'https//hotel-test-ywu6raktuq-uc.a.run.app/hotel/details/50'
 
-<span style="font-family:san-serif; font-size:15px;">This endpoint is used to get the details of one hotel.</span>
+<details><summary markdown="span">Result For get the get details of one hotel</summary>This endpoint is used to get the details of one hotel.
+
 ```javascript
 {
     "message" "Success",
@@ -309,6 +317,10 @@
         }
     }
 ```
+</details>
+
+---
+
 1. <font color="orange">**User Recommendation**</font>
 >https//hotel-test-ywu6raktuq-uc.a.run.app/user-recommendation/number
 
@@ -318,7 +330,8 @@
 3. <font color="Gold">Example Request</font>
 >curl --location --request POST 'https//hotel-test-ywu6raktuq-uc.a.run.app/user-recommendation/110'
 
-<span style="font-family:san-serif; font-size:15px;">This Endpoint is used to get user preferences recommendation. Thre is a Lot of data so we have to take 1 data as a sample. </span>
+<details><summary markdown="span">Result For Request user preference to get reccomendation</summary>This Endpoint is used to get user preferences recommendation. Thre is a Lot of data so we have to take 1 data as a sample.
+
 ```javascript
 {
     "message" "Success",
@@ -361,6 +374,10 @@
         ]
     }
 ```
+</details>
+
+---
+
 1. <font color="orange">**Hotel Recommendation**</font>
 >https//hotel-test-ywu6raktuq-uc.a.run.app/hotel-recommendation/number
 
@@ -370,7 +387,8 @@
 3. <font color="Gold">Example Request</font>
 >curl --location --request POST 'https//hotel-test-ywu6raktuq-uc.a.run.app/hotel-recommendation/50'
 
-<span style="font-family:san-serif; font-size:15px;">This endpoint is used to get the hotel recommendation based on hotel. There is a lot of data so we have to take 1 data as a sample</span>
+<details><summary markdown="span">Result For Request hotel recomendation based on keyword</summary>This endpoint is used to get the hotel recommendation based on hotel. There is a lot of data so we have to take 1 data as a sample
+
 ```javascript
 {
     "message" "Success",
@@ -412,6 +430,8 @@
         ]
     }
 ```
+</details>
+
 ---
 
 1. <font color="85586F">**By Location Recommendation**</font>
