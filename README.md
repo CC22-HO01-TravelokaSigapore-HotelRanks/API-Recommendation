@@ -10,9 +10,9 @@ in making the RESTful APIs we use [Sequelize](https//sequelize.org), [ExpressJS]
 ## The List Of APIs
 In this section there is a list of all Hotel APIs that can be Sorted
 
-1. API-Hotel
-2. Login-Register API
-3. Review API
+1. [API-Hotel](https://documenter.getpostman.com/view/21073398/Uyxogi87)
+2. [Login-Register API](https://documenter.getpostman.com/view/21020193/UyxoiPz8)
+3. [Review-API](https://documenter.getpostman.com/view/21020193/Uz5CMJN1)
 ---
 
 ### API-Hotel
@@ -740,8 +740,8 @@ In this section there is a Hotel API that can be used to be main foundation of o
 
 ---
 
-### Review API
-<span style="font-family:san-serif; font-size:15px;">In this Section, There is a Review API that can be used to create, manage, update, and delete through our hotel apps. Response from each URL using JSON format.</span>
+### Review-API
+<span style="font-family:san-serif; font-size:15px;">In this Section, There is a Review-API that can be used to create, manage, update, and delete through our hotel apps. Response from each URL using JSON format.</span>
 
 - <font color="crimson">**Base URL**</font>
 >https//review-ywu6raktuq-uc.a.run.app
