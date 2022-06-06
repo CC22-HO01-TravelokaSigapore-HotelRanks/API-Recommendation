@@ -4,7 +4,7 @@ Creating RESTful APIs and deploying to Google Cloud Platform Using [Google Cloud
 ---
 
 ## RESTful API 
-RESTful API</summary>in making the RESTful APIs we use [Sequelize](https//sequelize.org), [ExpressJS](https//expressjs.com), [CORS](https//enable-cors.org/index.html), [NodeJS](https//nodejs.org/en/)</details>
+in making the RESTful APIs we use [Sequelize](https//sequelize.org), [ExpressJS](https//expressjs.com), [CORS](https//enable-cors.org/index.html), [NodeJS](https//nodejs.org/en/)
 
 ---
 ## The List Of APIs
