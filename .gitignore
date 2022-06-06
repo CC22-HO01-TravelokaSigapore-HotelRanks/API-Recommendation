@@ -105,4 +105,9 @@ dist
 
 .env
 
+
 SA_KEY/
+
+API-Gateway Config/
+
+.CREDENTIALS_GOOGLE

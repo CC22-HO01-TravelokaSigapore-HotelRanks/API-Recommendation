@@ -120,9 +120,9 @@ exports.findAllByHotelId = async (req, res) => {
         });
       }
       res.send({
-        message: 'successfull',
+        message: 'successful',
         total: results.length,
-        results,
+        data: results,
       });
     })
     .catch(() => {
@@ -143,7 +143,7 @@ exports.findAllByHotelAndUserId = (req, res) => {
         });
       }
         res.send({
-          message: 'successfull',
+          message: 'successful',
           data
         });
     })
@@ -169,7 +169,7 @@ exports.findOneById = (req, res) => {
       }
       res.send({
         message: 'successful',
-        results
+        data: results[0]
       });
     })
     .catch(() => {
