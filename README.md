@@ -510,7 +510,8 @@ In this section there is a Hotel API that can be used to be main foundation of o
     "latitude":35.6
 }'
 
-<span style="font-family:san-serif; font-size:15px;">This endpoint is mainly used to give users the perfect recommendation for them. There is a lot of data so we have to take 1 data as a sample</span>
+<details><summary markdown="span">Result For Give User Perfect Reccomendation Request</summary>This endpoint is mainly used to give users the perfect recommendation for them. There is a lot of data so we have to take 1 data as a sample
+
 ```javascript
 {
     "message": "Success",
@@ -550,6 +551,8 @@ In this section there is a Hotel API that can be used to be main foundation of o
     ]
 }
 ```
+</details>
+
 ---
 
 ### Login-Register API
@@ -573,12 +576,15 @@ In this section there is a Hotel API that can be used to be main foundation of o
 --data-urlencode 'userName=' \
 --data-urlencode 'password='
 
-<span style="font-family:san-serif; font-size:15px;">This endpoint is used to Registering User</span>
+<details><summary markdown="span">Result For Request Registering User</summary>This endpoint is used to Registering User
+
 ```javascript
 {
     "message" "successful"
 }
 ```
+</details>
+
 ---
 1. <font color="Magenta">User Login</font>
 >https//test1-ywu6raktuq-uc.a.run.app/user
@@ -591,7 +597,8 @@ In this section there is a Hotel API that can be used to be main foundation of o
 --data-urlencode 'userName=' \
 --data-urlencode 'password='
 
-<span style="font-family:san-serif; font-size:15px;">This endpoint is used to User Login Without Google</span>
+<details><summary markdown="span">Result For Request Login Without Google</summary>This endpoint is used to User Login Without Google
+
 ```javascript
 {
     "message" "successful",
@@ -601,6 +608,8 @@ In this section there is a Hotel API that can be used to be main foundation of o
     }
 }
 ```
+</details>
+
 ---
 
 1. <font color="F1D00A">LOG IN with GOOGLE</font>
@@ -612,7 +621,8 @@ In this section there is a Hotel API that can be used to be main foundation of o
 3. <font color="Red">Example request</font>
 >curl --location -g --request GET 'https//test1-ywu6raktuq-uc.a.run.app/user/login/google?code={{codeToken}}'
 
-<span style="font-family:san-serif; font-size:15px;">This Endpoint is used to User Login With Google</span>
+<details><summary markdown="span">Result For Request Login With Google</summary>This Endpoint is used to User Login With Google
+
 ```javascript
 {
     "message" "successful",
@@ -622,6 +632,8 @@ In this section there is a Hotel API that can be used to be main foundation of o
     }
 }
 ```
+</details>
+
 ---
 1. <font color="F76E11">GET USER BY ID</font>
 >https//test1-ywu6raktuq-uc.a.run.app/user/
@@ -630,7 +642,8 @@ In this section there is a Hotel API that can be used to be main foundation of o
 >curl --location --request GET 'https//test1-ywu6raktuq-uc.a.run.app/user/' \
 --header 'Authorization Bearer •••••••'
 
-<span style="font-family:san-serif; font-size:15px;">This Endpoint is used to Get the User By id</span>
+<details><summary markdown="span">Result For Request Get the User By id</summary>This Endpoint is used to Get the User By id
+
 ```javascript
 {
     "message" "sucessfull",
@@ -660,6 +673,8 @@ In this section there is a Hotel API that can be used to be main foundation of o
     }
 }
 ```
+</details>
+
 ---
 1. <font color="EC994B">REFRESH LOGIN</font>
 >https//test1-ywu6raktuq-uc.a.run.app/user/login
@@ -670,7 +685,8 @@ In this section there is a Hotel API that can be used to be main foundation of o
 3. <font color="Gold">Example Request</font>
 >curl --location --request GET 'https//test1-ywu6raktuq-uc.a.run.app/user/login/refresh-login'
 
-<span style="font-family:san-serif; font-size:15px;">Request to get a new 'access token' for getting session/to login. This request will be use 'cache' that set to the client before in Login to do this request</span>
+<details><summary markdown="span">Result For Request to get a new 'access token' for getting session/to login.</summary>Request to get a new 'access token' for getting session/to login. This request will be use 'cache' that set to the client before in Login to do this request
+
 ```javascript
 {
     "message" "successful",
@@ -680,6 +696,8 @@ In this section there is a Hotel API that can be used to be main foundation of o
     }
 }
 ```
+</details>
+
 ---
 
 1. <font color="EFD345">UPDATE USER BY ID</font>
@@ -692,12 +710,15 @@ In this section there is a Hotel API that can be used to be main foundation of o
 >curl --location --request PUT 'https//test1-ywu6raktuq-uc.a.run.app/user/' \
 --header 'Authorization Bearer •••••••'
 
-<span style="font-family:san-serif; font-size:15px;">This Endpoint is used to update user needs by looking for userId</span>
+<details><summary markdown="span">Result For Request to update user needs by looking for userId</summary>This Endpoint is used to update user needs by looking for userId
+
 ```javascript
 {
     "message" "sucessfull"
 }
 ```
+</details>
+
 ---
 1. <font color="red">LOGOUT</font>
 >https//test1-ywu6raktuq-uc.a.run.app/user
@@ -711,12 +732,15 @@ In this section there is a Hotel API that can be used to be main foundation of o
 4. <font color="gold">Example Request</font>
 >curl --location --request DELETE 'https//test1-ywu6raktuq-uc.a.run.app/user/logout'
 
-<span style="font-family:san-serif; font-size:15px;">Logout session by delete the 'refresh token' in cache</span>
+<details><summary markdown="span">Result For Logout session by delete the 'refresh token' in cache</summary>Logout session by delete the 'refresh token' in cache
+
 ```javascript
 {
     "message" "successful"
 }
 ```
+</details>
+
 ---
 
 ### Review API
@@ -742,12 +766,15 @@ In this section there is a Hotel API that can be used to be main foundation of o
     "rating" 2
 }'
 
-<span style="font-family:san-serif; font-size:15px;">This endpoint to creates new reviews based on specific hotelId and userId</span>
+<details><summary markdown="span">Result For Request to creates new reviews based on specific hotelId and userId</summary>This endpoint to creates new reviews based on specific hotelId and userId</span>
+
 ```javascript
 {
     "message" "post review success"
 }
 ```
+</details>
+
 ---
 1. <font color="magenta">Find All Reviews</font>
 >https//review-ywu6raktuq-uc.a.run.app/reviews
@@ -758,7 +785,8 @@ In this section there is a Hotel API that can be used to be main foundation of o
 3. <font color="gold">Example Request</font>
 >curl --location --request GET 'https//review-ywu6raktuq-uc.a.run.app/reviews'
 
-<span style="font-family:san-serif; font-size:15px;">This endpoint is used to list all the reviews. This endpoint will display a lot of data. We only take 1 data as a sample</span>
+<details><summary markdown="span">Result For Request to get all the reviews</summary>This endpoint is used to list all the reviews. This endpoint will display a lot of data. We only take 1 data as a sample</span>
+
 ```javascript
 [
     {
@@ -772,6 +800,8 @@ In this section there is a Hotel API that can be used to be main foundation of o
     }
 ]
 ```
+</details>
+
 ---
 1. <font color="magenta">Find Reviews By Hotel Id</font>
 >https//review-ywu6raktuq-uc.a.run.app/reviews
@@ -782,7 +812,8 @@ In this section there is a Hotel API that can be used to be main foundation of o
 3. <font color="gold">Example Request</font>
 >curl --location -g --request GET 'https//review-ywu6raktuq-uc.a.run.app/reviews/{{hotelId}}?page&offset'
 
-<span style="font-family:san-serif; font-size:15px;">This endpoint is used to list all reviews regarding to specific hotelId. In the real test on postman there is 101 data so we take 1 data for sample</span>
+<details><summary markdown="span">Result For Request to get all reviews regarding to specific hotelId</summary>This endpoint is used to list all reviews regarding to specific hotelId. In the real test on postman there is 101 data so we take 1 data for sample
+
 ```javascript
 {
     "message" "successful",
@@ -800,6 +831,8 @@ In this section there is a Hotel API that can be used to be main foundation of o
     ]
 }
 ```
+</details>
+
 ---
 
 1. <font color="magenta">Find Reviews By Hotel Id and User Id</font>
@@ -811,7 +844,8 @@ In this section there is a Hotel API that can be used to be main foundation of o
 3. <font color="gold">Example Request</font>
 >curl --location -g --request GET 'https//review-ywu6raktuq-uc.a.run.app/reviews/{{hotelId}}/{{userId}}'
 
-<span style="font-family:san-serif; font-size:15px;">This endpoint is used to list all reviews regarding to specific hotelId and userId</span>
+<details><summary markdown="span">Result For Request to list all reviews regarding to specific hotelId and userId</summary>This endpoint is used to list all reviews regarding to specific hotelId and userId
+
 ```javascript
 {
     "message" "successful",
@@ -826,6 +860,8 @@ In this section there is a Hotel API that can be used to be main foundation of o
     ]
 }
 ```
+</details>
+
 ---
 
 1. <font color="magenta">Find Specific Review By Hotel Id, User Id, and Review Id</font>
@@ -837,7 +873,8 @@ In this section there is a Hotel API that can be used to be main foundation of o
 3. <font color="gold">Example Request</font>
 >curl --location -g --request GET 'https//review-ywu6raktuq-uc.a.run.app/reviews/{{hotelId}}/{{userId}}/{{reviewId}}'
 
-<span style="font-family:san-serif; font-size:15px;">This endpoint is used to list all reviews regarding to specific hotelId , userId, and reviewId itself</span>
+<details><summary markdown="span">Result For Request to list all reviews regarding to specific hotelId , userId, and reviewId itself</summary>This endpoint is used to list all reviews regarding to specific hotelId , userId, and reviewId itself
+
 ```javascript
 {
     "message" "successful",
@@ -851,6 +888,8 @@ In this section there is a Hotel API that can be used to be main foundation of o
     }
 }
 ```
+</details>
+
 ---
 
 1. <font color="magenta">Update By Review Id</font>
@@ -867,12 +906,15 @@ In this section there is a Hotel API that can be used to be main foundation of o
     "rating" 4
 }'
 
-<span style="font-family:san-serif; font-size:15px;">This endpoint is used to allow users edit their reviews regarding to specific hotelId , userId, and reviewId itself</span>
+<details><summary markdown="span">Result For Request to edit the reviews regarding to specific hotelId , userId, and reviewId itself</summary>This endpoint is used to allow users edit their reviews regarding to specific hotelId , userId, and reviewId itself
+
 ```javascript
 {
     "message" "review was updated successfully."
 }
 ```
+</details>
+
 ---
 
 1. <font color="magenta">Delete By Review Id</font>
@@ -885,11 +927,14 @@ In this section there is a Hotel API that can be used to be main foundation of o
 >curl --location -g --request DELETE 'https//review-ywu6raktuq-uc.a.run.app/reviews/{{hotelId}}/{{userId}}/{{reviewId}}' \
 --header 'Authorization Bearer {{accessToken}}'
 
-<span style="font-family:san-serif; font-size:15px;">This endpoint is used to allow users delete their reviews regarding to specific hotelId , userId, and reviewId itself</span>
+<details><summary markdown="span">Result For Request to delete their reviews regarding to specific hotelId , userId, and reviewId itself</summary>This endpoint is used to allow users delete their reviews regarding to specific hotelId , userId, and reviewId itself
+
 ```javascript
 {
     "message" "review was deleted successfully!"
 }
 ```
+</details>
+
 ---
 <span style="font-family:san-serif; font-size:40px;">Thank You For the Oppoturnity</span>
