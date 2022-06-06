@@ -81,6 +81,7 @@ In this section there is a Hotel API that can be used to be main foundation of o
 }
 ```
 </details>
+
 ---
 
 
@@ -141,6 +142,7 @@ In this section there is a Hotel API that can be used to be main foundation of o
     }
 ```
 </details>
+
 ---
 
 1. <font color="Blue">**List Hotel By Rating**</font>
@@ -387,7 +389,7 @@ In this section there is a Hotel API that can be used to be main foundation of o
 3. <font color="Gold">Example Request</font>
 >curl --location --request POST 'https//hotel-test-ywu6raktuq-uc.a.run.app/hotel-recommendation/50'
 
-<details><summary markdown="span">Result For Request hotel recomendation based on keyword</summary>This endpoint is used to get the hotel recommendation based on hotel. There is a lot of data so we have to take 1 data as a sample
+<details><summary markdown="span">Result For Get hotel recomendation </summary>This endpoint is used to get the hotel recommendation based on hotel. There is a lot of data so we have to take 1 data as a sample
 
 ```javascript
 {
@@ -449,7 +451,8 @@ In this section there is a Hotel API that can be used to be main foundation of o
     "latitude":-10.6
 }'
 
-<span style="font-family:san-serif; font-size:15px;">This endpoint is strictly for giving recommendation for users by their location.</span> 
+<details><summary markdown="span">Result For Request hotel recomendation based on Location</summary>This endpoint is strictly for giving recommendation for users by their location.
+
 ```javascript
 {
     "message" "Success",
@@ -489,6 +492,8 @@ In this section there is a Hotel API that can be used to be main foundation of o
     ]
 }
 ```
+</details>
+
 ---
 
 1. <font color="F190B7">**For You**</font>
