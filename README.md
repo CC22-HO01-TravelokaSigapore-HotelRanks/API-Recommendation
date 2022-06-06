@@ -1,22 +1,25 @@
 # Cloud Computing Path
-<span style="color:Red;font-weight:700;font-size:20px"><details><summary markdown="span">Cloud Computing Path</summary>Creating RESTful APIs and deploying to Google Cloud Platform Using [Google Cloud Run](https//cloud.google.com/run) for communication between Machine Learning Recommendation System Model and Mobile Development. Creating database in [Google Cloud SQL](https//cloud.google.com/sql)</span></span></details>
+<details><summary markdown="span">Cloud Computing Path</summary>Creating RESTful APIs and deploying to Google Cloud Platform Using [Google Cloud Run](https//cloud.google.com/run) for communication between Machine Learning Recommendation System Model and Mobile Development. Creating database in [Google Cloud SQL](https//cloud.google.com/sql)</details>
 
 ---
 
 ## RESTful API 
-<span style="color:yellow;font-weight:700;font-size:20px"><details><summary markdown="span">RESTful API</summary>in making the RESTful APIs we use [Sequelize](https//sequelize.org), [ExpressJS](https//expressjs.com), [CORS](https//enable-cors.org/index.html), [NodeJS](https//nodejs.org/en/) </font></span></details>
+<details><summary markdown="span">RESTful API</summary>in making the RESTful APIs we use [Sequelize](https//sequelize.org), [ExpressJS](https//expressjs.com), [CORS](https//enable-cors.org/index.html), [NodeJS](https//nodejs.org/en/)</details>
 
 ---
 ## The List Of APIs
-<span style="color:orange;font-weight:700;font-size:20px"><details><summary markdown="span">The List Of APIs</summary>In this section there is a list of all Hotel APIs that can be Sorted
- 1. API-Hotel
- 2. Login-Register API
- 3. Review API
-</span></details>
+<details><summary markdown="span">The List Of APIs</summary>In this section there is a list of all Hotel APIs that can be Sorted
+
+1. API-Hotel
+2. Login-Register API
+3. Review API
+
+</details>
+
 ---
 
 ### API-Hotel
-<span style="color:green;font-weight:700;font-size:20px"><details><summary markdown="span">API-Hotel</summary>In this section there is a Hotel API that can be used to be main foundation of our hotel apps. Response from each URL using JSON format.</span></details>
+<details><summary markdown="span">API-Hotel</summary>In this section there is a Hotel API that can be used to be main foundation of our hotel apps. Response from each URL using JSON format.</details>
 
 - <span style="color:crimson;font-weight:400;font-size:20px">**Base URL**</span> 
 >https//hotel-test-ywu6raktuq-uc.a.run.app
@@ -33,7 +36,7 @@
 4. <span style="color:gold;font-weight:700;font-size:17px">Example request</span>
 >curl --location --request GET 'https//hotel-test-ywu6raktuq-uc.a.run.app/hotel/list'
 
-<span style="color:teal;font-weight:700;font-size:20px">This API is mainly to get the list of the hotel for the users</span>
+<details><summary markdown="span">Result For Request List all Hotel </summary>This API is mainly to get the list of the hotel for the users
 ```javascript
 {
     {
@@ -76,9 +79,11 @@
     }
 }
 ```
+</details>
 ---
 
-1. <span style="color:blue;font-weight:700;font-size:17px">**List Hotel By Search**</span>
+
+1. **List Hotel By Search**</span>
 >https//hotel-test-ywu6raktuq-uc.a.run.app/search?keyword=name
 
 2. <span style="color:magenta;font-weight:700;font-size:17px">Path</span>
@@ -90,7 +95,8 @@
 4. <span style="color:gold;font-weight:700;font-size:17px">Example Request</span>
 >curl --location --request GET 'https//hotel-test-ywu6raktuq-uc.a.run.app/search?keyword=bali'
 
-<span style="font-family:san-serif; font-size:15px;">This endpoint is mainly for searching purposes. The "keyword" parameter is a must when searching. There is a lot of data so we have to take 1 data as a sample</span>
+<details><summary markdown="span">Result For Request based on keyword</summary>This endpoint is mainly for searching purposes. The "keyword" parameter is a must when searching. There is a lot of data so we have to take 1 data as a sample
+
 ```javascript
 {
     "message" "Success",
@@ -133,6 +139,8 @@
         ]
     }
 ```
+</details>
+
 ---
 
 1. <font color="Blue">**List Hotel By Rating**</font>
