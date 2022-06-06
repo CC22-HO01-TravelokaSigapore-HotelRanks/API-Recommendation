@@ -1,41 +1,39 @@
 # Cloud Computing Path
-<font color="Red"><span style="font-family:liberation sans; font-size:20px;">Creating RESTful APIs and deploying to Google Cloud Platform Using [Google Cloud Run](https//cloud.google.com/run) for communication between Machine Learning Recommendation System Model and Mobile Development. Creating database in [Google Cloud SQL](https//cloud.google.com/sql)</font></span>
+<span style="color:Red;font-weight:700;font-size:20px">Creating RESTful APIs and deploying to Google Cloud Platform Using [Google Cloud Run](https//cloud.google.com/run) for communication between Machine Learning Recommendation System Model and Mobile Development. Creating database in [Google Cloud SQL](https//cloud.google.com/sql)</span></span>
 
 ---
 
 ## RESTful API 
-<font color="Yellow"><span style="font-family:liberation sans; font-size:20px;">In making the RESTful APIs we use [Sequelize](https//sequelize.org), [ExpressJS](https//expressjs.com), [CORS](https//enable-cors.org/index.html), [NodeJS](https//nodejs.org/en/) </font></span>
+<span style="color:yellow;font-weight:700;font-size:20px">n making the RESTful APIs we use [Sequelize](https//sequelize.org), [ExpressJS](https//expressjs.com), [CORS](https//enable-cors.org/index.html), [NodeJS](https//nodejs.org/en/) </font></span>
 
 ---
-## List APIs
-<font color="#00FFAB"><span style="font-family:liberation sans; font-size:20px;">In this section there is a list of all Hotel APIs that can be Sorted
+## The List Of APIs
+<span style="color:orange;font-weight:700;font-size:20px">In this section there is a list of all Hotel APIs that can be Sorted
  1. API-Hotel
  2. Login-Register API
  3. Review API
-
-</font> </span>
-
+</span>
 ---
 
 ### API-Hotel
-<span style="font-family:san-serif; font-size:15px;">In this section there is a Hotel API that can be used to be main foundation of our hotel apps. Response from each URL using JSON format.</span>
+<span style="color:green;font-weight:700;font-size:20px">In this section there is a Hotel API that can be used to be main foundation of our hotel apps. Response from each URL using JSON format.</span>
 
-- <font color="crimson">**Base URL**</font> 
+- <span style="color:crimson;font-weight:400;font-size:20px">**Base URL**</span> 
 >https//hotel-test-ywu6raktuq-uc.a.run.app
 
-1. <font color="caulifower">Path</font>
+1. <span style="color:magenta;font-weight:700;font-size:17px">Path</span>
 >hotel/list
 
-2. <font color="F806CC">Method</font>
+2. <span style="color:#F806CC;font-weight:700;font-size:17px">Method</span>
 ><Code><font color="green">GET</font></Code> 
 
-3. <font color="cyan">List All Hotel</font>
+3. <span style="color:cyan;font-weight:700;font-size:17px">List All Hotel</span>
 >https//hotel-test-ywu6raktuq-uc.a.run.app/hotel/list
 
-4. <font color="gold">Example request</font>
+4. <span style="color:gold;font-weight:700;font-size:17px">Example request</span>
 >curl --location --request GET 'https//hotel-test-ywu6raktuq-uc.a.run.app/hotel/list'
 
-<span style="font-family:san-serif; font-size:15px;">This API is mainly to get the list of the hotel for the users
+<span style="color:teal;font-weight:700;font-size:20px">This API is mainly to get the list of the hotel for the users</span>
 ```javascript
 {
     {
@@ -80,16 +78,16 @@
 ```
 ---
 
-1. <font color="Blue">**List Hotel By Search**</font>
+1. <span style="color:blue;font-weight:700;font-size:17px">**List Hotel By Search**</span>
 >https//hotel-test-ywu6raktuq-uc.a.run.app/search?keyword=name
 
-2. <font color="caulifower">Path</font>
+2. <span style="color:magenta;font-weight:700;font-size:17px">Path</span>
 >/search?keyword=name
 
-3. <font color="cyan">Required</font>
+3. <span style="color:cyan;font-weight:700;font-size:17px">Required</span>
 >Keyword=[varchar]
     
-4. <font color="gold">Example Request</font>
+4. <span style="color:gold;font-weight:700;font-size:17px">Example Request</span>
 >curl --location --request GET 'https//hotel-test-ywu6raktuq-uc.a.run.app/search?keyword=bali'
 
 <span style="font-family:san-serif; font-size:15px;">This endpoint is mainly for searching purposes. The "keyword" parameter is a must when searching. There is a lot of data so we have to take 1 data as a sample</span>
