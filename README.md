@@ -8,14 +8,11 @@ in making the RESTful APIs we use [Sequelize](https//sequelize.org), [ExpressJS]
 
 ---
 ## The List Of APIs
-<details><summary markdown="span">The List Of APIs</summary>In this section there is a list of all Hotel APIs that can be Sorted
+In this section there is a list of all Hotel APIs that can be Sorted
 
 1. API-Hotel
 2. Login-Register API
 3. Review API
-
-</details>
-
 ---
 
 ### API-Hotel
