@@ -15,7 +15,7 @@ In this section there is a list of all Hotel APIs that can be Sorted
 3. [Review-API](#review-api)
 ---
 
-#### API-Hotel
+### API-Hotel
 In this section there is a Hotel API that can be used to be main foundation of our hotel apps. Response from each URL using JSON format.
 
 - <span style="color:crimson;font-weight:400;font-size:20px">**Base URL**</span> 
