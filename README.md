@@ -412,14 +412,15 @@
 >https//hotel-test-ywu6raktuq-uc.a.run.app
 
 2. <font color="caulifower">Required</font>
->/byLocation
+>/by-location
 
 3. <font color="Gold">Example Request</font>
->curl --location --request POST 'https//hotel-test-ywu6raktuq-uc.a.run.app/byLocation/' \
+>curl --location --request POST 'https://hotel-test-ywu6raktuq-uc.a.run.app/by-location/' \
+--header 'Authorization: Bearer {{accesstoken}}' \
 --data-raw '{
-    "user_id"10,
-    "longitude"12.7,
-    "latitude"35.6
+    
+    "longitude":-122.7,
+    "latitude":-10.6
 }'
 
 <span style="font-family:san-serif; font-size:15px;">This endpoint is strictly for giving recommendation for users by their location.</span> 
