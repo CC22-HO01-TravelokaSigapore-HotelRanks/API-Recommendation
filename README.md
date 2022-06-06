@@ -1,22 +1,22 @@
 # Cloud Computing Path
-<span style="color:Red;font-weight:700;font-size:20px">Creating RESTful APIs and deploying to Google Cloud Platform Using [Google Cloud Run](https//cloud.google.com/run) for communication between Machine Learning Recommendation System Model and Mobile Development. Creating database in [Google Cloud SQL](https//cloud.google.com/sql)</span></span>
+<span style="color:Red;font-weight:700;font-size:20px"><details><summary markdown="span">Cloud Computing Path</summary>Creating RESTful APIs and deploying to Google Cloud Platform Using [Google Cloud Run](https//cloud.google.com/run) for communication between Machine Learning Recommendation System Model and Mobile Development. Creating database in [Google Cloud SQL](https//cloud.google.com/sql)</span></span></details>
 
 ---
 
 ## RESTful API 
-<span style="color:yellow;font-weight:700;font-size:20px">n making the RESTful APIs we use [Sequelize](https//sequelize.org), [ExpressJS](https//expressjs.com), [CORS](https//enable-cors.org/index.html), [NodeJS](https//nodejs.org/en/) </font></span>
+<span style="color:yellow;font-weight:700;font-size:20px"><details><summary markdown="span">RESTful API</summary>in making the RESTful APIs we use [Sequelize](https//sequelize.org), [ExpressJS](https//expressjs.com), [CORS](https//enable-cors.org/index.html), [NodeJS](https//nodejs.org/en/) </font></span></details>
 
 ---
 ## The List Of APIs
-<span style="color:orange;font-weight:700;font-size:20px">In this section there is a list of all Hotel APIs that can be Sorted
+<span style="color:orange;font-weight:700;font-size:20px"><details><summary markdown="span">The List Of APIs</summary>In this section there is a list of all Hotel APIs that can be Sorted
  1. API-Hotel
  2. Login-Register API
  3. Review API
-</span>
+</span></details>
 ---
 
 ### API-Hotel
-<span style="color:green;font-weight:700;font-size:20px">In this section there is a Hotel API that can be used to be main foundation of our hotel apps. Response from each URL using JSON format.</span>
+<span style="color:green;font-weight:700;font-size:20px"><details><summary markdown="span">API-Hotel</summary>In this section there is a Hotel API that can be used to be main foundation of our hotel apps. Response from each URL using JSON format.</span></details>
 
 - <span style="color:crimson;font-weight:400;font-size:20px">**Base URL**</span> 
 >https//hotel-test-ywu6raktuq-uc.a.run.app
