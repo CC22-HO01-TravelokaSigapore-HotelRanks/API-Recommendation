@@ -10,9 +10,9 @@ in making the RESTful APIs we use [Sequelize](https//sequelize.org), [ExpressJS]
 ## The List Of APIs
 In this section there is a list of all Hotel APIs that can be Sorted
 
-1. [API-Hotel](https://documenter.getpostman.com/view/21073398/Uyxogi87)
-2. [Login-Register API](https://documenter.getpostman.com/view/21020193/UyxoiPz8)
-3. [Review-API](https://documenter.getpostman.com/view/21020193/Uz5CMJN1)
+1. [API-Hotel](#api-hotel)
+2. [Login-Register API](#login-register-api)
+3. [Review-API](#review-api)
 ---
 
 ### API-Hotel
@@ -27,7 +27,7 @@ In this section there is a Hotel API that can be used to be main foundation of o
 2. <span style="color:#F806CC;font-weight:700;font-size:17px">Method</span>
 ><Code><font color="green">GET</font></Code> 
 
-3. <span style="color:cyan;font-weight:700;font-size:17px">List All Hotel</span>
+3. ### [List All Hotel](#1--list-hotel-by-search1--list-hotel-by-searchspanspan)</span>
 >https//hotel-test-ywu6raktuq-uc.a.run.app/hotel/list
 
 4. <span style="color:gold;font-weight:700;font-size:17px">Example request</span>
@@ -82,7 +82,7 @@ In this section there is a Hotel API that can be used to be main foundation of o
 ---
 
 
-1. **List Hotel By Search**</span>
+1. ### [List Hotel By Search](#1--list-hotel-by-searchspan)</span>
 >https//hotel-test-ywu6raktuq-uc.a.run.app/search?keyword=name
 
 2. <span style="color:magenta;font-weight:700;font-size:17px">Path</span>
@@ -142,7 +142,7 @@ In this section there is a Hotel API that can be used to be main foundation of o
 
 ---
 
-1. <font color="Blue">**List Hotel By Rating**</font>
+1. ### [List Hotel By Rating](#1--list-hotel-by-rating)
 >https//hotel-test-ywu6raktuq-uc.a.run.app/hotel/number
 
 2. <font color="caulifower">Path</font>
@@ -200,7 +200,7 @@ In this section there is a Hotel API that can be used to be main foundation of o
 
 ---
 
-1. <font color="blue">**list hotel by Trending**</font>
+1. ### [list hotel by Trending](#1--list-hotel-by-trending)
 >https//hotel-test-ywu6raktuq-uc.a.run.app/trending/?page=number&offset=number
 
 2. <font color="caulifower">Path</font>
@@ -266,7 +266,7 @@ In this section there is a Hotel API that can be used to be main foundation of o
 1. <font color="caulifower">Method</font>
 ><Code><font color="yellow">POST</font></Code>
 
-2. <font color="cyan">One Hotel Detail</font>
+2. ### [One Hotel Detail](#2--one-hotel-detail)
 >https//hotel-test-ywu6raktuq-uc.a.run.app/hotel/details/number
 
 3. <font color="gold">Required</font>
@@ -320,7 +320,7 @@ In this section there is a Hotel API that can be used to be main foundation of o
 
 ---
 
-1. <font color="orange">**User Recommendation**</font>
+1. ### [User Recommendation](#1--user-recommendation)
 >https//hotel-test-ywu6raktuq-uc.a.run.app/user-recommendation/number
 
 2. <font color="caulifower">Required</font>
@@ -377,7 +377,7 @@ In this section there is a Hotel API that can be used to be main foundation of o
 
 ---
 
-1. <font color="orange">**Hotel Recommendation**</font>
+1. ### [Hotel Recommendation](#1--hotel-recommendation)
 >https//hotel-test-ywu6raktuq-uc.a.run.app/hotel-recommendation/number
 
 2. <font color="caulifower">Required</font>
@@ -433,7 +433,7 @@ In this section there is a Hotel API that can be used to be main foundation of o
 
 ---
 
-1. <font color="85586F">**By Location Recommendation**</font>
+1. ### [By Location Recommendation](#1--by-location-recommendation)
 >https//hotel-test-ywu6raktuq-uc.a.run.app
 
 2. <font color="caulifower">Required</font>
@@ -493,7 +493,7 @@ In this section there is a Hotel API that can be used to be main foundation of o
 
 ---
 
-1. <font color="F190B7">**For You**</font>
+1. ### [For You](#1--for-you)
 >https://hotel-test-ywu6raktuq-uc.a.run.app
 
 2. <font color="caulifower">Path</font>
@@ -552,7 +552,7 @@ In this section there is a Hotel API that can be used to be main foundation of o
 
 ---
 
-### Login-Register API
+### [Login-Register API](#login-register-api)
 <span style="font-family:san-serif; font-size:15px;">In this Section, There is a Login-Register API That can be used as Login and Register System For Our Hotel apps. Response from each URL using JSON format.</span>
 
 - <font color="crimson">**Base URL**</font>
@@ -564,7 +564,7 @@ In this section there is a Hotel API that can be used to be main foundation of o
 2.  <font color="Red">Method</font>
 ><Code><font color="Yellow">POST</font></Code> 
 
-3. <font color="cyan">User Registration</font>
+3. ### [User Registration](#3--user-registration)
 >https//test1-ywu6raktuq-uc.a.run.app/user/register
 
 4. <font color="gold">Example request</font>
@@ -583,7 +583,7 @@ In this section there is a Hotel API that can be used to be main foundation of o
 </details>
 
 ---
-1. <font color="Magenta">User Login</font>
+1. ### [User Login](#1--user-login)
 >https//test1-ywu6raktuq-uc.a.run.app/user
 
 2. <font color="Red">Path</font>
@@ -609,7 +609,7 @@ In this section there is a Hotel API that can be used to be main foundation of o
 
 ---
 
-1. <font color="F1D00A">LOG IN with GOOGLE</font>
+1. ### [LOG IN with GOOGLE](#1--log-in-with-google)
 >https//test1-ywu6raktuq-uc.a.run.app/user/login/google?code={{codeToken}}
 
 2. <font color="2666CF">Method</font>
@@ -632,7 +632,7 @@ In this section there is a Hotel API that can be used to be main foundation of o
 </details>
 
 ---
-1. <font color="F76E11">GET USER BY ID</font>
+1. ### [GET USER BY ID](#1--get-user-by-id)
 >https//test1-ywu6raktuq-uc.a.run.app/user/
 
 2. <font color="Gold">Example request</font>
@@ -673,7 +673,7 @@ In this section there is a Hotel API that can be used to be main foundation of o
 </details>
 
 ---
-1. <font color="EC994B">REFRESH LOGIN</font>
+1. ### [REFRESH LOGIN](#1--refresh-login)
 >https//test1-ywu6raktuq-uc.a.run.app/user/login
 
 2. <font color="caulifower">Required</font>
@@ -697,7 +697,7 @@ In this section there is a Hotel API that can be used to be main foundation of o
 
 ---
 
-1. <font color="EFD345">UPDATE USER BY ID</font>
+1. ### [UPDATE USER BY ID](#1--update-user-by-id)
 >https//test1-ywu6raktuq-uc.a.run.app/user/
 
 2. <font color="caulifower">Method</font>
@@ -717,7 +717,7 @@ In this section there is a Hotel API that can be used to be main foundation of o
 </details>
 
 ---
-1. <font color="red">LOGOUT</font>
+1. ### [LOGOUT](#1--logout)
 >https//test1-ywu6raktuq-uc.a.run.app/user
 
 2. <font color="caulifower">Required</font>
@@ -740,22 +740,24 @@ In this section there is a Hotel API that can be used to be main foundation of o
 
 ---
 
-### Review-API
+### [Review-API](#review-api)
 <span style="font-family:san-serif; font-size:15px;">In this Section, There is a Review-API that can be used to create, manage, update, and delete through our hotel apps. Response from each URL using JSON format.</span>
 
-- <font color="crimson">**Base URL**</font>
+- ### [Create Review Based on the userId and hotelId](#create-review-based-on-the-userid-and-hotelid)
+
+1. <font color="crimson">**Base URL**</font>
 >https//review-ywu6raktuq-uc.a.run.app
 
-1. <font color="magenta">Path</font>
+2. <font color="magenta">Path</font>
 >/reviews
 
-2. <font color="orange">Required</font>
+3. <font color="orange">Required</font>
 >/{hotelId} as [interger]/ {userId} as [interger]
 
-3. <font color="teal">Method</font>
+4. <font color="teal">Method</font>
 ><Code><font color="Yellow">POST</font></Code>
 
-4. <font color="gold">Example Request</font>
+5. <font color="gold">Example Request</font>
 >curl --location -g --request POST 'https//review-ywu6raktuq-uc.a.run.app/reviews/{{hotelId}}/{{userId}}' \
 --header 'Authorization Bearer {{accessToken}}' \
 --data-raw '{
@@ -773,7 +775,7 @@ In this section there is a Hotel API that can be used to be main foundation of o
 </details>
 
 ---
-1. <font color="magenta">Find All Reviews</font>
+1. ### [Find All Reviews](#1--find-all-reviews)
 >https//review-ywu6raktuq-uc.a.run.app/reviews
 
 2. <font color="orange">Method</font>
@@ -800,7 +802,7 @@ In this section there is a Hotel API that can be used to be main foundation of o
 </details>
 
 ---
-1. <font color="magenta">Find Reviews By Hotel Id</font>
+1. ### [Find Reviews By Hotel Id](#1--find-reviews-by-hotel-id)
 >https//review-ywu6raktuq-uc.a.run.app/reviews
 
 2. <font color="orange">Required</font>
@@ -832,7 +834,7 @@ In this section there is a Hotel API that can be used to be main foundation of o
 
 ---
 
-1. <font color="magenta">Find Reviews By Hotel Id and User Id</font>
+1. ### [Find Reviews By Hotel Id and User Id](#1--find-reviews-by-hotel-id-and-user-id)
 >https//review-ywu6raktuq-uc.a.run.app/reviews
 
 2. <font color="orange">Required</font>
@@ -861,7 +863,7 @@ In this section there is a Hotel API that can be used to be main foundation of o
 
 ---
 
-1. <font color="magenta">Find Specific Review By Hotel Id, User Id, and Review Id</font>
+1. ### [Find Specific Review By Hotel Id, User Id, and Review Id](#1--find-reviews-by-hotel-id--find-reviews-by-user-id--find-reviews-by-review-id)
 >https//review-ywu6raktuq-uc.a.run.app/reviews
 
 2. <font color="orange">Required</font>
@@ -889,7 +891,7 @@ In this section there is a Hotel API that can be used to be main foundation of o
 
 ---
 
-1. <font color="magenta">Update By Review Id</font>
+1. ### [Update By Review Id](#1--update-by-review-id)
 >https//review-ywu6raktuq-uc.a.run.app/reviews
 
 2. <font color="orange">Required</font>
@@ -914,7 +916,7 @@ In this section there is a Hotel API that can be used to be main foundation of o
 
 ---
 
-1. <font color="magenta">Delete By Review Id</font>
+1. ### [Delete By Review Id](#1--delete-by-review-id)
 >https//review-ywu6raktuq-uc.a.run.app/reviews
 
 2. <font color="orange">Required</font>
