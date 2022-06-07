@@ -327,7 +327,7 @@ In this section there is a Hotel API that can be used to be main foundation of o
 >/[interger]
 
 3. <font color="Gold">Example Request</font>
->curl --location --request POST 'https://hotel-test-ywu6raktuq-uc.a.run.app/user-recommendation/110' \
+>curl --location --request POST 'https://hotel-test-ywu6raktuq-uc.a.run.app/user-recommendation/1' \
 --header 'Authorization: Bearer {{accesstoken}}''
 
 <details><summary markdown="span">Result For Request user preference to get reccomendation</summary>This Endpoint is used to get user preferences recommendation. Thre is a Lot of data so we have to take 1 data as a sample.
