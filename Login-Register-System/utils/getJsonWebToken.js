@@ -9,7 +9,7 @@ exports.accessToken = ({ email, id, userName }) => {
     },
     process.env.ACCESS_TOKEN_SECRET_KEY,
     {
-      expiresIn: '15m',
+      expiresIn: '30m',
     },
   );
 };
