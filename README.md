@@ -754,13 +754,13 @@ In this section there is a Hotel API that can be used to be main foundation of o
 3. <font color="orange">Required</font>
 >/{hotelId} as [interger]/ {userId} as [interger]
 
-3. #### [Create Review Based on the userId and hotelId](#3--create-review-based-on-the-userid-and-hotelid) 
+4. #### [Create Review Based on the userId and hotelId](#3--create-review-based-on-the-userid-and-hotelid) 
 >https//review-ywu6raktuq-uc.a.run.app/reviews/{{hotelId}}/{{userId}}
 
-4. <font color="teal">Method</font>
+5. <font color="teal">Method</font>
 ><Code><font color="Yellow">POST</font></Code>
 
-5. <font color="gold">Example Request</font>
+6. <font color="gold">Example Request</font>
 >curl --location -g --request POST 'https//review-ywu6raktuq-uc.a.run.app/reviews/{{hotelId}}/{{userId}}' \
 --header 'Authorization Bearer {{accessToken}}' \
 --data-raw '{
