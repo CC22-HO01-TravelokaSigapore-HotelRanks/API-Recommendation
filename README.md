@@ -34,7 +34,7 @@ In this section there is a Hotel API that can be used to be main foundation of o
 4. <span style="color:gold;font-weight:700;font-size:17px">Example request</span>
 >curl --location --request GET 'https//hotel-test-ywu6raktuq-uc.a.run.app/hotel/list'
 
-<details><summary markdown="span">Result For Request list all hotel</summary>This API is mainly to get the list of the hotel for the users
+<details><summary markdown="span">Result For Request list all hotel</summary>This API is mainly to get the list of the hotel for the users. There is a lot of data so we have to take 1 data as a sample
 
 ```javascript
 {
