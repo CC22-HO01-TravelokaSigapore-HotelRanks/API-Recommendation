@@ -22,14 +22,14 @@ In this section there is a Hotel API that can be used to be main foundation of o
 - <span style="color:crimson;font-weight:400;font-size:20px">**Base URL**</span> 
 >https//hotel-test-ywu6raktuq-uc.a.run.app
 
-1. <span style="color:magenta;font-weight:700;font-size:17px">Path</span>
+1. #### [List All Hotel](#1--list-hotel-by-search1--list-hotel-by-searchspanspan)
+>https//hotel-test-ywu6raktuq-uc.a.run.app/hotel/list
+
+2. <span style="color:magenta;font-weight:700;font-size:17px">Path</span>
 >hotel/list
 
-2. <span style="color:#F806CC;font-weight:700;font-size:17px">Method</span>
+3. <span style="color:#F806CC;font-weight:700;font-size:17px">Method</span>
 ><Code><font color="green">GET</font></Code> 
-
-3. #### [List All Hotel](#1--list-hotel-by-search1--list-hotel-by-searchspanspan)
->https//hotel-test-ywu6raktuq-uc.a.run.app/hotel/list
 
 4. <span style="color:gold;font-weight:700;font-size:17px">Example request</span>
 >curl --location --request GET 'https//hotel-test-ywu6raktuq-uc.a.run.app/hotel/list'
@@ -262,11 +262,12 @@ In this section there is a Hotel API that can be used to be main foundation of o
 - <font color="orange">**Base URL**</font>
 >https//hotel-test-ywu6raktuq-uc.a.run.app
 
-1. <font color="caulifower">Method</font>
-><Code><font color="yellow">POST</font></Code>
-
-2. #### [One Hotel Detail](#2--one-hotel-detail)
+1. #### [One Hotel Detail](#1--one-hotel-detail)
 >https//hotel-test-ywu6raktuq-uc.a.run.app/hotel/details/number
+
+
+2. <font color="caulifower">Method</font>
+><Code><font color="yellow">POST</font></Code>
 
 3. <font color="gold">Required</font>
 >/[interger]
@@ -326,7 +327,8 @@ In this section there is a Hotel API that can be used to be main foundation of o
 >/[interger]
 
 3. <font color="Gold">Example Request</font>
->curl --location --request POST 'https//hotel-test-ywu6raktuq-uc.a.run.app/user-recommendation/110'
+>curl --location --request POST 'https://hotel-test-ywu6raktuq-uc.a.run.app/user-recommendation/110' \
+--header 'Authorization: Bearer {{accesstoken}}''
 
 <details><summary markdown="span">Result For Request user preference to get reccomendation</summary>This Endpoint is used to get user preferences recommendation. Thre is a Lot of data so we have to take 1 data as a sample.
 
@@ -383,7 +385,8 @@ In this section there is a Hotel API that can be used to be main foundation of o
 >/[interger]
 
 3. <font color="Gold">Example Request</font>
->curl --location --request POST 'https//hotel-test-ywu6raktuq-uc.a.run.app/hotel-recommendation/50'
+>curl --location --request POST 'https://hotel-test-ywu6raktuq-uc.a.run.app/hotel-recommendation/50' \
+--header 'Authorization: Bearer {{accesstoken}}''
 
 <details><summary markdown="span">Result For Get hotel recomendation </summary>This endpoint is used to get the hotel recommendation based on hotel. There is a lot of data so we have to take 1 data as a sample
 
@@ -557,14 +560,14 @@ In this section there is a Hotel API that can be used to be main foundation of o
 - <font color="crimson">**Base URL**</font>
 >https//test1-ywu6raktuq-uc.a.run.app
 
-1. <font color="caulifower">Path</font>
+1. #### [User Registration](#2--user-registration)
+>https//test1-ywu6raktuq-uc.a.run.app/user/register
+
+2. <font color="caulifower">Path</font>
 >/user
 
-2.  <font color="Red">Method</font>
+3.  <font color="Red">Method</font>
 ><Code><font color="Yellow">POST</font></Code> 
-
-3. #### [User Registration](#3--user-registration)
->https//test1-ywu6raktuq-uc.a.run.app/user/register
 
 4. <font color="gold">Example request</font>
 >curl --location --request POST 'https//test1-ywu6raktuq-uc.a.run.app/user/register' \
