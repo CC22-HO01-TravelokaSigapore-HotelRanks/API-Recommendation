@@ -259,8 +259,6 @@ In this section there is a Hotel API that can be used to be main foundation of o
 
 ---
 
-<font color="crimson">**Get the details of one hotel**</font>
-
 - <font color="orange">**Base URL**</font>
 >https//hotel-test-ywu6raktuq-uc.a.run.app
 
