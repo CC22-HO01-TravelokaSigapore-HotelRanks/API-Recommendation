@@ -98,6 +98,7 @@ const login = (req, res) => {
             data: {
               userId: user.id,
               accessToken,
+              refreshToken,
             },
           });
         }
@@ -262,6 +263,7 @@ const googleLogin = async (req, res) => {
           data: {
             userId: userData.id,
             accessToken,
+            refreshToken,
           },
         });
       })
