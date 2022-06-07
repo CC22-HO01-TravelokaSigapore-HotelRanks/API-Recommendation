@@ -22,14 +22,14 @@ In this section there is a Hotel API that can be used to be main foundation of o
 - <span style="color:crimson;font-weight:400;font-size:20px">**Base URL**</span> 
 >https//hotel-test-ywu6raktuq-uc.a.run.app
 
-1. <span style="color:magenta;font-weight:700;font-size:17px">Path</span>
+1. #### [List All Hotel](#1--list-hotel-by-search1--list-hotel-by-searchspanspan)
+>https//hotel-test-ywu6raktuq-uc.a.run.app/hotel/list
+
+2. <span style="color:magenta;font-weight:700;font-size:17px">Path</span>
 >hotel/list
 
-2. <span style="color:#F806CC;font-weight:700;font-size:17px">Method</span>
+3. <span style="color:#F806CC;font-weight:700;font-size:17px">Method</span>
 ><Code><font color="green">GET</font></Code> 
-
-3. #### [List All Hotel](#1--list-hotel-by-search1--list-hotel-by-searchspanspan)
->https//hotel-test-ywu6raktuq-uc.a.run.app/hotel/list
 
 4. <span style="color:gold;font-weight:700;font-size:17px">Example request</span>
 >curl --location --request GET 'https//hotel-test-ywu6raktuq-uc.a.run.app/hotel/list'
@@ -262,11 +262,12 @@ In this section there is a Hotel API that can be used to be main foundation of o
 - <font color="orange">**Base URL**</font>
 >https//hotel-test-ywu6raktuq-uc.a.run.app
 
-1. <font color="caulifower">Method</font>
-><Code><font color="yellow">POST</font></Code>
-
-2. #### [One Hotel Detail](#2--one-hotel-detail)
+1. #### [One Hotel Detail](#1--one-hotel-detail)
 >https//hotel-test-ywu6raktuq-uc.a.run.app/hotel/details/number
+
+
+2. <font color="caulifower">Method</font>
+><Code><font color="yellow">POST</font></Code>
 
 3. <font color="gold">Required</font>
 >/[interger]
@@ -326,51 +327,49 @@ In this section there is a Hotel API that can be used to be main foundation of o
 >/[interger]
 
 3. <font color="Gold">Example Request</font>
->curl --location --request POST 'https//hotel-test-ywu6raktuq-uc.a.run.app/user-recommendation/110'
+>curl --location --request POST 'https://hotel-test-ywu6raktuq-uc.a.run.app/user-recommendation/1' \
+--header 'Authorization: Bearer {{accesstoken}}''
 
 <details><summary markdown="span">Result For Request user preference to get reccomendation</summary>This Endpoint is used to get user preferences recommendation. Thre is a Lot of data so we have to take 1 data as a sample.
 
 ```javascript
 {
-    "message" "Success",
-    "data" [
+    "message": "Success",
+    "data": [
         {
-            "type_nearby_destination" [
-                "culinary",
-                " mall",
-                " botanical",
-                " historical"
+            "type_nearby_destination": [
+                "historical"
             ],
-            "image_links" [
-                "https//s3.ap-southeast-2.amazonaws.com/thebalibible.com/uploads/images/venue/594039e685ffcf9bdab11baaff970a14.jpg?v=1",
-                " https//pix10.agoda.net/hotelImages/474386/-1/c08b97d6183862230531a97a39f9d8b0.jpg?ca=9&ce=1&s=1024x768",
-                " https//www.ubud-villas.com/wp-content/uploads/2021/10/Villa-Hijau_Feature.jpg",
-                " https//cf.bstatic.com/xdata/images/hotel/max1280x900/161708562.jpg?k=5454bd2da0494840970988b976c80e89033e795e58b8d85324db3dffa5441055&o=&hp=1",
-                " https//q-xx.bstatic.com/xdata/images/hotel/max1280x900/102636121.jpg?k=9d9bb609f20a1ef1e5fe01541db64dc064e24c1800a60dc55917cb9d191d29ab&o="
+            "image_links": [
+                "https://images.squarespace-cdn.com/content/v1/57b5ffb16b8f5b060338d2c3/1540365026566-2TFPU39NUU9YHAXZNZMV/untitled-8915.jpg?format=1000w",
+                " https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRHMBnL7Q5gsJY8bIX0vGJoG6k2XLpUJ3SFVpw_V21jGPYTSMrFThEipmaVkbx-7kys7ec&usqp=CAU",
+                " https://images.squarespace-cdn.com/content/v1/57b5ffb16b8f5b060338d2c3/1479811522485-3VZBP1OXCIWTU3NK8YG2/tg.jpg?format=1500w",
+                " https://images.squarespace-cdn.com/content/v1/57b5ffb16b8f5b060338d2c3/1471871042460-CXD63F4HY2MK4DYFF1FO/image-asset.jpeg?format=1000w",
+                " https://images.squarespace-cdn.com/content/v1/57b5ffb16b8f5b060338d2c3/1543108158985-IYHFOJQHI6O0O7T31EGZ/untitled-0341.jpg?format=1000w"
             ],
-            "id" 5,
-            "name" "Villa Hijau - Peace and tranquility.",
-            "latitude" "-8.500065498130304",
-            "longitude" "115.25048098974094",
-            "neighborhood" "Ubud",
-            "hotel_star" "5.0",
-            "price_per_night" 81,
-            "free_refund" false,
-            "nearby_destination" 5,
-            "breakfast" true,
-            "pool" false,
-            "wifi" true,
-            "parking" true,
-            "smoking" false,
-            "air_conditioner" true,
-            "wheelchair_access" false,
-            "average_bed_size" false,
-            "staff_vaccinated" true,
-            "child_area" true,
-            "price_category" 2
-            }
-        ]
-    }
+            "id": 3,
+            "name": "Trinity Gardens - Wild and Beautiful",
+            "latitude": "-8.498648186564072",
+            "longitude": "115.25914837869784",
+            "neighborhood": "Ubud",
+            "hotel_star": "5.0",
+            "price_per_night": 134,
+            "free_refund": false,
+            "nearby_destination": 1,
+            "breakfast": true,
+            "pool": true,
+            "wifi": true,
+            "parking": true,
+            "smoking": true,
+            "air_conditioner": false,
+            "wheelchair_access": false,
+            "average_bed_size": false,
+            "staff_vaccinated": true,
+            "child_area": false,
+            "price_category": 2
+        }
+    ]
+}
 ```
 </details>
 
@@ -383,7 +382,8 @@ In this section there is a Hotel API that can be used to be main foundation of o
 >/[interger]
 
 3. <font color="Gold">Example Request</font>
->curl --location --request POST 'https//hotel-test-ywu6raktuq-uc.a.run.app/hotel-recommendation/50'
+>curl --location --request POST 'https://hotel-test-ywu6raktuq-uc.a.run.app/hotel-recommendation/50' \
+--header 'Authorization: Bearer {{accesstoken}}''
 
 <details><summary markdown="span">Result For Get hotel recomendation </summary>This endpoint is used to get the hotel recommendation based on hotel. There is a lot of data so we have to take 1 data as a sample
 
@@ -442,49 +442,50 @@ In this section there is a Hotel API that can be used to be main foundation of o
 >curl --location --request POST 'https://hotel-test-ywu6raktuq-uc.a.run.app/by-location/' \
 --header 'Authorization: Bearer {{accesstoken}}' \
 --data-raw '{
-    
     "longitude":-122.7,
     "latitude":-10.6
 }'
 
-<details><summary markdown="span">Result For Request hotel recomendation based on Location</summary>This endpoint is strictly for giving recommendation for users by their location.
+<details><summary markdown="span">Result For Request hotel recomendation based on Location</summary>This endpoint is strictly for giving recommendation for users by their location. There is a lot of data so we have to take 1 data as a sample
 
 ```javascript
 {
-    "message" "Success",
-    "data" [
+    "message": "Success",
+    "data": [
         {
-            "type_nearby_destination" [
-                "botanical"
+            "type_nearby_destination": [
+                "sport",
+                " zoo",
+                " mall"
             ],
-            "image_links" [
-                "https//cf.bstatic.com/xdata/images/hotel/max1280x900/36057502.jpg?k=17285ebdaf64fa436a748d639b40274cb20e8150ffdd335eaf28a0baf4598b83&o=&hp=1",
-                " https//cf.bstatic.com/xdata/images/hotel/max1024x768/100354372.jpg?k=6fa862e8e1f0134b83e189aa63507de0317246b14e8a2d6bfb2b8dd0df5aef84&o=&hp=1",
-                " https//yomavillasbali.com/wp-content/uploads/2016/09/Yoma-Villas-Bali-Luxury-Accommodation-Villa-Batur-Gallery-13.jpg",
-                " https//cf.bstatic.com/xdata/images/hotel/max1280x900/33256054.jpg?k=9db8a051b075ab4b7b36937d098d9e59a3353bef16ece8446f584505adccce6a&o=&hp=1",
-                " https//cf.bstatic.com/xdata/images/hotel/max500/240326281.jpg?k=67ea352e72c793ca1fc4fd44352f48ca2a0c491dcecb950ce8d796be69e640c8&o=&hp=1"
+            "image_links": [
+                "https://images.squarespace-cdn.com/content/v1/5feb7772dcac5279f756c909/db08b3a3-dbcf-407c-9040-f9aadbf42eb6/23.jpg",
+                " https://www.theluxurybali.com/wp-content/uploads/2016/07/1-or-2-Bedroom-Pool-Villa1-660x440.jpg",
+                " https://q-xx.bstatic.com/xdata/images/hotel/840x460/272688877.jpg?k=7b847fc976d2f594455dd2ccd737d28e8f0dcb205fd2a431cb72e10a45255737&o=",
+                " https://www.theluxurybali.com/wp-content/uploads/2015/04/The-Istana-Pool-1.jpg",
+                " https://q-xx.bstatic.com/xdata/images/hotel/840x460/272689279.jpg?k=0e7e761b575249d1614e3021c3584c60383900613de5c6bf44ffa0a5a6624650&o="
             ],
-            "id" 15,
-            "name" "Yoma Villas Bali - Villa Batur 3 bedroom",
-            "latitude" "-8.641679783016158",
-            "longitude" "115.13408163470034",
-            "neighborhood" "Canggu",
-            "hotel_star" "5.0",
-            "price_per_night" 185,
-            "free_refund" false,
-            "nearby_destination" 1,
-            "breakfast" false,
-            "pool" false,
-            "wifi" false,
-            "parking" true,
-            "smoking" true,
-            "air_conditioner" true,
-            "wheelchair_access" false,
-            "average_bed_size" false,
-            "staff_vaccinated" true,
-            "child_area" false,
-            "price_category" 2
-        },
+            "id": 16,
+            "name": "Private Luxury, 2 bedroom Villa, in Canggu",
+            "latitude": "-8.668900757522296",
+            "longitude": "115.14791089797410",
+            "neighborhood": "Canggu",
+            "hotel_star": "5.0",
+            "price_per_night": 206,
+            "free_refund": false,
+            "nearby_destination": 4,
+            "breakfast": true,
+            "pool": true,
+            "wifi": true,
+            "parking": true,
+            "smoking": true,
+            "air_conditioner": true,
+            "wheelchair_access": false,
+            "average_bed_size": false,
+            "staff_vaccinated": true,
+            "child_area": false,
+            "price_category": 2
+        }
     ]
 }
 ```
@@ -557,14 +558,14 @@ In this section there is a Hotel API that can be used to be main foundation of o
 - <font color="crimson">**Base URL**</font>
 >https//test1-ywu6raktuq-uc.a.run.app
 
-1. <font color="caulifower">Path</font>
+1. #### [User Registration](#2--user-registration)
+>https//test1-ywu6raktuq-uc.a.run.app/user/register
+
+2. <font color="caulifower">Path</font>
 >/user
 
-2.  <font color="Red">Method</font>
+3.  <font color="Red">Method</font>
 ><Code><font color="Yellow">POST</font></Code> 
-
-3. #### [User Registration](#3--user-registration)
->https//test1-ywu6raktuq-uc.a.run.app/user/register
 
 4. <font color="gold">Example request</font>
 >curl --location --request POST 'https//test1-ywu6raktuq-uc.a.run.app/user/register' \
@@ -597,10 +598,12 @@ In this section there is a Hotel API that can be used to be main foundation of o
 
 ```javascript
 {
-    "message" "successful",
-    "data" {
-        "userId" 131,
-        "accessToken" "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImZyZWRkeWFuZHJlYXM0QGdtYWlsLmNvbSIsImlkIjoxMzEsInVzZXJOYW1lIjoiZnJlZGR5YW5kcmVhc2NoYW5kcmEiLCJpYXQiOjE2NTQzMzE2MDgsImV4cCI6MTY1NDMzMjUwOH0.wAcEjAF7SEOs4Rp9XpHhXYXn4FcS7qW9r2fIdVGY030"
+    "message": "successful",
+    "data": {
+        "userId": 131,
+        "accessToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImZyZWRkeWFuZHJlYXM0QGdtYWlsLmNvbSIsImlkIjoxMzEsInVzZXJOYW1lIjoiZnJlZGR5YW5kcmVhc2NoYW5kcmEiLCJpYXQiOjE2NTQ1NzY3MzYsImV4cCI6MTY1NDU3NzYzNn0.2XeQWAGZ3Um7LE7a8cVt2AJdOM6IINd2OXwX1d8JTq0",
+        
+        "refreshToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImZyZWRkeWFuZHJlYXM0QGdtYWlsLmNvbSIsImlkIjoxMzEsInVzZXJOYW1lIjoiZnJlZGR5YW5kcmVhc2NoYW5kcmEiLCJpYXQiOjE2NTQ1NzY3MzYsImV4cCI6MTY1NzE2ODczNn0.bZj1FCCKV3NbPqRCOcu-R3eAWVDpXuyEXwFyP_32IoM"
     }
 }
 ```
@@ -743,17 +746,17 @@ In this section there is a Hotel API that can be used to be main foundation of o
 <span style="font-family:san-serif; font-size:15px;">In this Section, There is a Review-API that can be used to create, manage, update, and delete through our hotel apps. Response from each URL using JSON format.</span>
 
 
-1. <font color="crimson">**Base URL**</font>
+1. #### [Create Review Based on the userId and hotelId](#1--create-review-based-on-the-userid-and-hotelid) 
+>https//review-ywu6raktuq-uc.a.run.app/reviews/{{hotelId}}/{{userId}}
+
+2. <font color="crimson">**Base URL**</font>
 >https//review-ywu6raktuq-uc.a.run.app
 
-2. <font color="magenta">Path</font>
+3. <font color="magenta">Path</font>
 >/reviews
 
-3. <font color="orange">Required</font>
+4. <font color="orange">Required</font>
 >/{hotelId} as [interger]/ {userId} as [interger]
-
-4. #### [Create Review Based on the userId and hotelId](#3--create-review-based-on-the-userid-and-hotelid) 
->https//review-ywu6raktuq-uc.a.run.app/reviews/{{hotelId}}/{{userId}}
 
 5. <font color="teal">Method</font>
 ><Code><font color="Yellow">POST</font></Code>
