@@ -201,7 +201,7 @@ In this section there is a Hotel API that can be used to be main foundation of o
 
 ---
 
-1. #### [list hotel by Trending](#1--list-hotel-by-trending)
+1. #### [List Hotel by Trending](#1--list-hotel-by-trending)
 >https//hotel-test-ywu6raktuq-uc.a.run.app/trending/?page=number&offset=number
 
 2. <font color="caulifower">Path</font>
