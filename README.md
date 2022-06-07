@@ -18,6 +18,7 @@ In this section there is a list of all Hotel APIs that can be Sorted
 ### API-Hotel
 In this section there is a Hotel API that can be used to be main foundation of our hotel apps. Response from each URL using JSON format.
 
+
 - <span style="color:crimson;font-weight:400;font-size:20px">**Base URL**</span> 
 >https//hotel-test-ywu6raktuq-uc.a.run.app
 
@@ -27,7 +28,7 @@ In this section there is a Hotel API that can be used to be main foundation of o
 2. <span style="color:#F806CC;font-weight:700;font-size:17px">Method</span>
 ><Code><font color="green">GET</font></Code> 
 
-3. ### [List All Hotel](#1--list-hotel-by-search1--list-hotel-by-searchspanspan)</span>
+3. #### [List All Hotel](#1--list-hotel-by-search1--list-hotel-by-searchspanspan)
 >https//hotel-test-ywu6raktuq-uc.a.run.app/hotel/list
 
 4. <span style="color:gold;font-weight:700;font-size:17px">Example request</span>
@@ -258,7 +259,7 @@ In this section there is a Hotel API that can be used to be main foundation of o
 
 ---
 
-<font color="crimson">**GET THE DETAILS OF ONE HOTEL**</font>
+<font color="crimson">**Get the details of one hotel**</font>
 
 - <font color="orange">**Base URL**</font>
 >https//hotel-test-ywu6raktuq-uc.a.run.app
@@ -609,7 +610,7 @@ In this section there is a Hotel API that can be used to be main foundation of o
 
 ---
 
-1. #### [LOG IN with GOOGLE](#1--log-in-with-google)
+1. #### [Log in With Google](#1--log-in-with-google)
 >https//test1-ywu6raktuq-uc.a.run.app/user/login/google?code={{codeToken}}
 
 2. <font color="2666CF">Method</font>
@@ -632,7 +633,7 @@ In this section there is a Hotel API that can be used to be main foundation of o
 </details>
 
 ---
-1. #### [GET USER BY ID](#1--get-user-by-id)
+1. #### [Get user by ID](#1--get-user-by-id)
 >https//test1-ywu6raktuq-uc.a.run.app/user/
 
 2. <font color="Gold">Example request</font>
@@ -673,7 +674,7 @@ In this section there is a Hotel API that can be used to be main foundation of o
 </details>
 
 ---
-1. #### [REFRESH LOGIN](#1--refresh-login)
+1. #### [Refresh Login](#1--refresh-login)
 >https//test1-ywu6raktuq-uc.a.run.app/user/login
 
 2. <font color="caulifower">Required</font>
@@ -697,7 +698,7 @@ In this section there is a Hotel API that can be used to be main foundation of o
 
 ---
 
-1. #### [UPDATE USER BY ID](#1--update-user-by-id)
+1. #### [Update User By ID](#1--update-user-by-id)
 >https//test1-ywu6raktuq-uc.a.run.app/user/
 
 2. <font color="caulifower">Method</font>
@@ -717,7 +718,7 @@ In this section there is a Hotel API that can be used to be main foundation of o
 </details>
 
 ---
-1. #### [LOGOUT](#1--logout)
+1. #### [Logout](#1--logout)
 >https//test1-ywu6raktuq-uc.a.run.app/user
 
 2. <font color="caulifower">Required</font>
