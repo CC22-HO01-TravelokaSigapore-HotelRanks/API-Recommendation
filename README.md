@@ -746,17 +746,17 @@ In this section there is a Hotel API that can be used to be main foundation of o
 <span style="font-family:san-serif; font-size:15px;">In this Section, There is a Review-API that can be used to create, manage, update, and delete through our hotel apps. Response from each URL using JSON format.</span>
 
 
-1. <font color="crimson">**Base URL**</font>
+1. #### [Create Review Based on the userId and hotelId](#1--create-review-based-on-the-userid-and-hotelid) 
+>https//review-ywu6raktuq-uc.a.run.app/reviews/{{hotelId}}/{{userId}}
+
+2. <font color="crimson">**Base URL**</font>
 >https//review-ywu6raktuq-uc.a.run.app
 
-2. <font color="magenta">Path</font>
+3. <font color="magenta">Path</font>
 >/reviews
 
-3. <font color="orange">Required</font>
+4. <font color="orange">Required</font>
 >/{hotelId} as [interger]/ {userId} as [interger]
-
-4. #### [Create Review Based on the userId and hotelId](#3--create-review-based-on-the-userid-and-hotelid) 
->https//review-ywu6raktuq-uc.a.run.app/reviews/{{hotelId}}/{{userId}}
 
 5. <font color="teal">Method</font>
 ><Code><font color="Yellow">POST</font></Code>
