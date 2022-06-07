@@ -445,7 +445,6 @@ In this section there is a Hotel API that can be used to be main foundation of o
 >curl --location --request POST 'https://hotel-test-ywu6raktuq-uc.a.run.app/by-location/' \
 --header 'Authorization: Bearer {{accesstoken}}' \
 --data-raw '{
-    
     "longitude":-122.7,
     "latitude":-10.6
 }'
