@@ -24,7 +24,20 @@ router.route('/login')
 router.route('/login/refresh-login')
   .get(refreshLogin);
 
-router.route('/login/google')
+router.route('/login/google/consent')
+  .get((req, res) => {
+    res.redirect(getGoogleConsentUrl());
+  });
+
+router.route('/login/google/callback')
+  .get((req, res) => {
+    const { code } = req.query;
+    res.send({
+      code,
+    });
+  });
+
+router.route('/login/google/auth')
   .get(googleLogin);
 
 router.route('/logout')
