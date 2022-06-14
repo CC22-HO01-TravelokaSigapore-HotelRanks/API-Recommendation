@@ -10,6 +10,12 @@ router.get('/', (req, res) => {
     });
 }
 );
+router.post('/',(req,res)=>{
+    let test = req.body.name;
+    return res.json({
+        message: test
+    });
+});
 router.get('/list',async (req, res) => {
     let pages = 10
     let offset = 0

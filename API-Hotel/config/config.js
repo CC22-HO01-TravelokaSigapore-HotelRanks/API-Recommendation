@@ -1,9 +1,9 @@
 require('dotenv').config()
 
 const{
-  DB_USERNAME,
+  DB_USER,
   DB_PASSWORD,
-  DB_HOSTNAME,
+  DB_HOST,
   DB_NAME,
   DB_DIALEG
 }=process.env;
@@ -17,17 +17,17 @@ module.exports =
     "dialect": "mysql"
   },
   "test": {
-    "username": "root",
-    "password": "pakehddbiarmurah",
-    "database": "Productiondatabase",
-    "host": "34.122.198.154",
+    "username": DB_USER,
+    "password": DB_PASSWORD,
+    "database": DB_NAME,
+    "host": DB_HOST,
     "dialect": "mysql"
   },
   "production": {
-    "username": DB_USERNAME,
+    "username": DB_USER,
     "password": DB_PASSWORD,
     "database": DB_NAME,
-    "host": DB_HOSTNAME,
+    "host": DB_HOST,
     "dialect": DB_DIALEG
   }
 }

@@ -4,23 +4,32 @@ const router = express.Router();
 const {hotel}= require('../models');
 const {Op} = require('sequelize');
 
-
-router.post('/:user_id', (req, res) => {
-    const users = req.params.user_id;
+router.post('/', (req, res) => {
+    const long = req.body.longitude;
+    const lat = req.body.latitude;
+    let pages = 10
+    let offset = 0
+    if (req.query.page){
+        pages = parseInt(req.query.page)
+    }
+    if (req.query.offset){
+        offset = parseInt(req.query.offset)
+    }
     // res.status(200).json({
-    //     text: hotel,
+    //     user_id: user_id,
+    //     longitude: long,
+    //     latitude: lat
     // })
-    if (users == req.userData.id){
-     axios.post(`https://hotel-ranking-ywu6raktuq-uc.a.run.app/sentiment-similarity/${users}`)
-    .then( async response => {
-        const data = response.data;
-        if (data == 'User ID is not found/cached yet in ML. Please do recached on POST /re-cached/'){
-            return res.status(200).json({
-                message: 'User not found'
-            });
-        }
+     axios.post(`https://hotel-ranking-ywu6raktuq-uc.a.run.app/near_you/`,{
+         longitude:long,
+         latitude:lat
+        })
+    .then( async response => { 
+        const data = response.data.slice(0,11);
+        console.log(data)
         const result = await hotel.findAll({
-            
+            limit: pages,
+            offset: offset,
             where: {
                 id: {
                     [Op.or]:data
@@ -41,17 +50,11 @@ router.post('/:user_id', (req, res) => {
     
     })
     .catch(function (error) {
-        res.status(404).json({
-            text: error
-        })
+        res.status(404).json(error.response.data)
       });
-    }
-    else{
-        return res.status(403).json({
-            message: 'Forbidden'
-        });
-    }
      
 }
 );
+
+
 module.exports = router;

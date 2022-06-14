@@ -28,7 +28,6 @@ router.get('/',async (req, res) => {
             const Hotel = await hotel.findAll({
                 limit: pages,
                 offset: offset,
-                attributes: ['id', 'name','neighborhood','hotel_star','price_per_night','image_links','free_refund'],
                 where: {
                     [Op.or]:[
                         {

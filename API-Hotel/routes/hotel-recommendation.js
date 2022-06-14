@@ -1,8 +1,10 @@
 const express = require('express');
+
 const axios = require('axios');
 const router = express.Router();
 const {hotel}= require('../models');
 const {Op} = require('sequelize');
+
 
 router.post('/:hotel_id', (req, res) => {
     const hotels = req.params.hotel_id;
@@ -13,7 +15,6 @@ router.post('/:hotel_id', (req, res) => {
     .then( async response => {
         const data = response.data;
         const result = await hotel.findAll({
-            attributes: ['id', 'name','neighborhood','hotel_star','price_per_night','image_links','free_refund'],
             where: {
                 id: {
                     [Op.or]:data
@@ -35,7 +36,7 @@ router.post('/:hotel_id', (req, res) => {
     })
     .catch(function (error) {
         res.status(404).json({
-            text: "Sorry we encounter an error given your request"
+            text: error.response.data
         })
       });
      

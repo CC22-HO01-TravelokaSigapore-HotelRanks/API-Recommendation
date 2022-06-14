@@ -5,11 +5,20 @@ const {hotel}= require('../models');
 const {Op} = require('sequelize');
 
 router.get('/', (req, res) => {
+    let pages = 10
+    let offset = 0
+    if (req.query.page){
+        pages = parseInt(req.query.page)
+    }
+    if (req.query.offset){
+        offset = parseInt(req.query.offset)
+    }
     axios.post('https://hotel-ranking-ywu6raktuq-uc.a.run.app/trending_system/')
     .then( async response => {
         const data = response.data;
         const result = await hotel.findAll({
-            attributes: ['id', 'name','neighborhood','hotel_star','price_per_night','image_links','free_refund'],
+            limit: pages,
+            offset: offset,
             where: {
                 id: {
                     [Op.or]:data
