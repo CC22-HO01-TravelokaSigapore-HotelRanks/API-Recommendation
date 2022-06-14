@@ -1,0 +1,41 @@
+name: Review Endpoint Docker Imaging
+
+on:
+  push:
+    branches:
+      # Only run when there's a push / commits on main branch
+      - "main"
+    paths:
+      # Only run when there's a changes in API-Hotel Folders
+      - "Review-Endpoint"
+    
+env:
+  TAGS: ${{ github.sha }}
+  
+  # Please fill this Docker Repository with DockerHub Repository like this
+  # kaenova/traveloka-sentiment-prediction
+  DOCKER_REPOSITORY: docker/hub-repository
+
+jobs: 
+  DockerImagingService:
+    runs-on: ubuntu-20.04
+    defaults:
+      run:
+        # Don't forget to fill this
+        # If your project is not in the root, please change it to the directory
+        # where there's a Dockerfile.
+        # You can fill it like this.
+        # working-directory: "./some-folder-with-dockerfile"
+        working-directory: "./Review-Hotel"
+    steps:
+      - name: Checkout latest code
+        uses: actions/checkout@v2
+
+      - name: Build Docker Image
+        run: docker build --tag "$DOCKER_REPOSITORY:$TAGS" --tag "$DOCKER_REPOSITORY:latest" .
+
+      - name: DockerHub Login
+        run: echo ${{ secrets.DOCKER_PASSWORD }} | docker login --username ${{ secrets.DOCKER_USER }} --password-stdin
+
+      - name: Dockerhub Push
+        run: docker push $DOCKER_REPOSITORY --all-tags
